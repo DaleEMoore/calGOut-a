@@ -1,0 +1,15 @@
+Overview
+Calendar Google Out to Quick Books, Quicken, OpenERP, Odoo or some other invoicing program.
+
+Keep your scheduled events in Google Calendar, perform the events, then bill for the time.
+
+
+
+TODOs
+Capture recent time from the calendar.
+
+
+
+Logs
+Thursday 14 August 2014 11:44 PM CST
+Created

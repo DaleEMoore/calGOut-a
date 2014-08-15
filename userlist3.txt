@@ -1,0 +1,3 @@
+add_new_user 1 1
+unknown_user 170 70
+monthy 185 83
