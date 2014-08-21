@@ -59,7 +59,7 @@ def get_events(entries):
         # get values from user
         account = entries['Google Account'].get()
         password = entries['Google Account Password'].get()
-        d1 = ['Start Date'].get()
+        d1 = entries['Start Date'].get()
         start_date = datetime.datetime.strptime(d1, '%m/%d/%y')
         d1 = entries['End Date'].get()
         end_date = datetime.datetime.strptime(d1, '%m/%d/%y')
@@ -70,15 +70,20 @@ def get_events(entries):
         pass
     except:
         exc_type, exc_value, exc_traceback = sys.exc_info()
-        update_message(entries, exc_traceback)
+        update_message(entries, exc_value)
+        traceback.print_exc()
+        #print exc_type
+        #print exc_value
+        #print exc_traceback
 
 def makeform(root, fieldsList):
    entries = {}
    for field in fieldsList:
       row = Frame(root)
       # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
+      # TODO; if name is "Message" make it multi-line.
       lab = Label(row, width=22, text=field+": ", anchor='w')
-      ent = Entry(row)
+      ent = Entry(row, width=40)
       ent.insert(0,"")
       #ent.insert(0,"0")
       row.pack(side=TOP, fill=X, padx=5, pady=5)
