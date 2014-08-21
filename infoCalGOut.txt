@@ -7,6 +7,11 @@ Keep your scheduled events in Google Calendar, perform the events, then bill for
 
 TODOs
 Capture recent time from the calendar.
+    Use enter2, or enter3 to capture account, password, calendar, start_date, end_date, filter.
+        Remember them for next run.
+    Output events to CSV
+        to Quick Books
+        to Quicken
 
 
 

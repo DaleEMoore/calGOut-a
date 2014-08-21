@@ -14,130 +14,89 @@ __author__ = 'dalem'
 
 # From: http://stackoverflow.com/questions/18636792/tkinter-get-data-from-a-entry-widget
 
+import sys, traceback
 from Tkinter import *
-select = 1
-height = 2
-weight = 3
-
-user_list = Tk()
-user_list.title('Users')
-
-def add_new_user():
-    global select
-    global height
-    global weight
-    select = name.get()
-    height = h.get()
-    weight = w.get()
-    f = ' '
-    us=open("userlist3.txt","a")
-    print name, height, weight
-    us.write(select + f + str(height) + f + str(weight) + "\n")
-    us.close()
-#    add_user.destroy() # it doesn't work
-    user_list.destroy()
-
-def onSelect(ev): # (10)
-    global select
-    select=listb.get(listb.curselection()) # (12)
-    lab.configure(text=select) # (14)
-    global name
-    global h
-    global w
-    if select == '':
-        add_user = Toplevel(user_list)
-        #add_user = Tk()
-        add_user.title('New user')
-        a=Label(add_user,text="Your username").pack()
-        name = StringVar()
-        NAME = Entry(add_user,textvariable = name).pack()
-        b=Label(add_user,text="Your height (in cm)").pack()
-        h = IntVar()
-        H = Entry(add_user,textvariable = h).pack()
-        c=Label(add_user,text="Your weight (in kg)").pack()
-        w = IntVar()
-        W = Entry(add_user,textvariable = w).pack()
-        Add_New_User=Button(add_user,text="Add new user data",command=add_new_user).pack()
-        add_user.mainloop()
-    else:
-        user_list.destroy()
-
-a=open("userlist3.txt","r")
-b =[]
-for linea in a:
-    b.append(linea)
-a.close()
-e = []
-for i in range(len(b)):
-    e.append(b[i].split())
-userlist = []
-heightlist = []
-weightlist = []
-for i in range(len(e)):
-    userlist.append(e[i][0])
-    heightlist.append(e[i][1])
-    weightlist.append(e[i][2])
-
-sbar = Scrollbar(user_list, orient=VERTICAL) # (20)
-listb = Listbox(user_list, width=30, height=4) # (22)
-sbar.config(command=listb.yview) # (30)
-listb.config(yscrollcommand=sbar.set) # (32)
-sbar.pack(side=RIGHT, fill=Y) # (40)
-listb.pack() # (42)
-# TODO; Double Click on no users, empty userlist3.txt, gets "bad listbox index"
-lab=Label(user_list,text="Double Click on User") # (50)
-lab.pack()
-for c in userlist: listb.insert(END,c)
-listb.bind('<Double-1>',onSelect) # (70)
-user_list.mainloop()
-
-for d in range(0,len(userlist)):
-    if userlist[d] == select:
-        height = int(heightlist[d])
-        weight = int(weightlist[d])
-
-print "Selected user is: ",select
-print height
-print weight
+account_password_dates_fields = ('Status',
+                                 'Message',
+                                 'Google Account',
+                                 'Google Account Password',
+                                 'Start Date',
+                                 'End Date')
 
 
+def update_status(entries, status_description):
+    entries['Status'].delete(0,END)
+    entries['Status'].insert(0, status_description )
+    print("Status: %s" % status_description)
 
+def update_message(entries, message_description):
+    entries['Message'].delete(0,END)
+    entries['Message'].insert(0, message_description)
+    print("Message: %s" % message_description)
 
-# From: https://docs.python.org/3.5/library/tkinter.html
-#import Tkinter as tk
-##import tkinter as tk
-#class Application(tk.Frame):
-#    def __init__(self, master=None):
-#        tk.Frame.__init__(self, master)
-#        self.pack()
-#        self.createWidgets()
-#    def createWidgets(self):
-#        self.hi_there = tk.Button(self)
-#        self.hi_there["text"] = "Hello World\n(click me)"
-#        self.hi_there["command"] = self.say_hi
-#        self.hi_there.pack(side="top")
-#       self.QUIT = tk.Button(self, text="QUIT", fg="red",
-#                                            command=root.destroy)
-#        self.QUIT.pack(side="bottom")
-#    def say_hi(self):
-#        print("hi there, everyone!")
-#root = tk.Tk()
-#app = Application(master=root)
-#app.mainloop()
+def monthly_payment(entries):
+    try:
+        # period rate:
+        r = (float(entries['Annual Rate'].get()) / 100) / 12
+        print("r", r)
+        # principal loan:
+        loan = float(entries['Loan Principle'].get())
+        n =  float(entries['Number of Payments'].get())
+        remaining_loan = float(entries['Remaining Loan'].get())
+        q = (1 + r)** n
+        monthly = r * ( (q * loan - remaining_loan) / ( q - 1 ))
+        monthly = ("%8.2f" % monthly).strip()
+        entries['Monthly Payment'].delete(0,END)
+        entries['Monthly Payment'].insert(0, monthly )
+        print("Monthly Payment: %f" % monthly)
+    except:
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        update_message(entries, exc_traceback)
 
+def final_balance(entries):
+    try:
+        # period rate:
+        r = (float(entries['Annual Rate'].get()) / 100) / 12
+        print("r", r)
+        # principal loan:
+        loan = float(entries['Loan Principle'].get())
+        n =  float(entries['Number of Payments'].get())
+        q = (1 + r)** n
+        monthly = float(entries['Monthly Payment'].get())
+        q = (1 + r)** n
+        remaining = q * loan  - ( (q - 1) / r) * monthly
+        remaining = ("%8.2f" % remaining).strip()
+        entries['Remaining Loan'].delete(0,END)
+        entries['Remaining Loan'].insert(0, remaining )
+        print("Remaining Loan: %f" % remaining)
+    except:
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        update_message(entries, exc_traceback)
 
+def makeform(root, fieldsList):
+   entries = {}
+   for field in fieldsList:
+      row = Frame(root)
+      lab = Label(row, width=22, text=field+": ", anchor='w')
+      ent = Entry(row)
+      ent.insert(0,"")
+      #ent.insert(0,"0")
+      row.pack(side=TOP, fill=X, padx=5, pady=5)
+      lab.pack(side=LEFT)
+      ent.pack(side=RIGHT, expand=YES, fill=X)
+      entries[field] = ent
+   return entries
 
-
-# From: http://stackoverflow.com/questions/19719577/add-tkinters-intvar-to-an-integer
-# TODO; <Return> or ENTER does nothing.
-#from Tkinter import Entry, IntVar, Tk
-#root = Tk()
-#data = IntVar()
-#entry = Entry(textvariable=data)
-#entry.grid()
-#def click(event):
-#    # Get the number, add 1 to it, and then print it
-#    print data.get() + 1
-# Bind the entrybox to the Return key
-#entry.bind("<Return>", click)
-#root.mainloop()
+if __name__ == '__main__':
+   root = Tk()
+   ents = makeform(root, account_password_dates_fields)
+   root.bind('<Return>', (lambda event, e=ents: fetch(e)))
+   update_status(ents, "Starting...")
+   b1 = Button(root, text='Final Balance', command=(lambda e=ents: final_balance(e)))
+   b1.pack(side=LEFT, padx=5, pady=5)
+   b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
+   b2.pack(side=LEFT, padx=5, pady=5)
+   b3 = Button(root, text='Quit', command=root.quit)
+   b3.pack(side=LEFT, padx=5, pady=5)
+   update_status(ents, "Waiting for entry...")
+   root.mainloop()

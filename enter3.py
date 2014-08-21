@@ -37,9 +37,9 @@ def final_balance(entries):
    entries['Remaining Loan'].insert(0, remaining )
    print("Remaining Loan: %f" % remaining)
 
-def makeform(root, fields):
+def makeform(root, fieldsList):
    entries = {}
-   for field in fields:
+   for field in fieldsList:
       row = Frame(root)
       lab = Label(row, width=22, text=field+": ", anchor='w')
       ent = Entry(row)
