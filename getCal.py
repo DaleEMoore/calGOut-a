@@ -14,6 +14,7 @@ __author__ = 'dalem'
 
 # From: http://stackoverflow.com/questions/18636792/tkinter-get-data-from-a-entry-widget
 
+import datetime
 import sys, traceback
 from Tkinter import *
 account_password_dates_fields = ('Status',
@@ -33,42 +34,40 @@ def update_message(entries, message_description):
     entries['Message'].delete(0,END)
     entries['Message'].insert(0, message_description)
     print("Message: %s" % message_description)
+#
+#def monthly_payment(entries):
+#    try:
+#        # period rate:
+#        r = (float(entries['Annual Rate'].get()) / 100) / 12
+#        print("r", r)
+#        # principal loan:
+#        loan = float(entries['Loan Principle'].get())
+#        n =  float(entries['Number of Payments'].get())
+#        remaining_loan = float(entries['RemaininPycharmProjectsg Loan'].get())
+#        q = (1 + r)** n
+#        monthly = r * ( (q * loan - remaining_loan) / ( q - 1 ))
+#        monthly = ("%8.2f" % monthly).strip()
+#        entries['Monthly Payment'].delete(0,END)
+#        entries['Monthly Payment'].insert(0, monthly )
+#        print("Monthly Payment: %f" % monthly)
+#    except:
+#        exc_type, exc_value, exc_traceback = sys.exc_info()
+#        update_message(entries, exc_traceback)
 
-def monthly_payment(entries):
+def get_events(entries):
     try:
-        # period rate:
-        r = (float(entries['Annual Rate'].get()) / 100) / 12
-        print("r", r)
-        # principal loan:
-        loan = float(entries['Loan Principle'].get())
-        n =  float(entries['Number of Payments'].get())
-        remaining_loan = float(entries['Remaining Loan'].get())
-        q = (1 + r)** n
-        monthly = r * ( (q * loan - remaining_loan) / ( q - 1 ))
-        monthly = ("%8.2f" % monthly).strip()
-        entries['Monthly Payment'].delete(0,END)
-        entries['Monthly Payment'].insert(0, monthly )
-        print("Monthly Payment: %f" % monthly)
-    except:
-        exc_type, exc_value, exc_traceback = sys.exc_info()
-        update_message(entries, exc_traceback)
-
-def final_balance(entries):
-    try:
-        # period rate:
-        r = (float(entries['Annual Rate'].get()) / 100) / 12
-        print("r", r)
-        # principal loan:
-        loan = float(entries['Loan Principle'].get())
-        n =  float(entries['Number of Payments'].get())
-        q = (1 + r)** n
-        monthly = float(entries['Monthly Payment'].get())
-        q = (1 + r)** n
-        remaining = q * loan  - ( (q - 1) / r) * monthly
-        remaining = ("%8.2f" % remaining).strip()
-        entries['Remaining Loan'].delete(0,END)
-        entries['Remaining Loan'].insert(0, remaining )
-        print("Remaining Loan: %f" % remaining)
+        # get values from user
+        account = entries['Google Account'].get()
+        password = entries['Google Account Password'].get()
+        d1 = ['Start Date'].get()
+        start_date = datetime.datetime.strptime(d1, '%m/%d/%y')
+        d1 = entries['End Date'].get()
+        end_date = datetime.datetime.strptime(d1, '%m/%d/%y')
+        print account, password, start_date, end_date
+        # validate date fields since I don't have a date picker yet.
+        # TODO; get events from Google
+        # TODO; show events to user
+        pass
     except:
         exc_type, exc_value, exc_traceback = sys.exc_info()
         update_message(entries, exc_traceback)
@@ -77,6 +76,7 @@ def makeform(root, fieldsList):
    entries = {}
    for field in fieldsList:
       row = Frame(root)
+      # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
       lab = Label(row, width=22, text=field+": ", anchor='w')
       ent = Entry(row)
       ent.insert(0,"")
@@ -92,11 +92,12 @@ if __name__ == '__main__':
    ents = makeform(root, account_password_dates_fields)
    root.bind('<Return>', (lambda event, e=ents: fetch(e)))
    update_status(ents, "Starting...")
-   b1 = Button(root, text='Final Balance', command=(lambda e=ents: final_balance(e)))
+   b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)))
    b1.pack(side=LEFT, padx=5, pady=5)
-   b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
-   b2.pack(side=LEFT, padx=5, pady=5)
+   #b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
+   #b2.pack(side=LEFT, padx=5, pady=5)
    b3 = Button(root, text='Quit', command=root.quit)
    b3.pack(side=LEFT, padx=5, pady=5)
    update_status(ents, "Waiting for entry...")
+   update_message(ents, "Enter dates as mm/dd/yy!")
    root.mainloop()
