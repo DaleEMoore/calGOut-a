@@ -22,7 +22,8 @@ account_password_dates_fields = ('Status',
                                  'Google Account',
                                  'Google Account Password',
                                  'Start Date',
-                                 'End Date')
+                                 'End Date',
+                                 'Destination File')
 
 
 def update_status(entries, status_description):
@@ -63,7 +64,8 @@ def get_events(entries):
         start_date = datetime.datetime.strptime(d1, '%m/%d/%y')
         d1 = entries['End Date'].get()
         end_date = datetime.datetime.strptime(d1, '%m/%d/%y')
-        print account, password, start_date, end_date
+        destination_file = entries['Destination File'].get()
+        print account, password, start_date, end_date, destination_file
         # validate date fields since I don't have a date picker yet.
         # TODO; get events from Google
         # TODO; show events to user
@@ -93,16 +95,18 @@ def makeform(root, fieldsList):
    return entries
 
 if __name__ == '__main__':
-   root = Tk()
-   ents = makeform(root, account_password_dates_fields)
-   root.bind('<Return>', (lambda event, e=ents: fetch(e)))
-   update_status(ents, "Starting...")
-   b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)))
-   b1.pack(side=LEFT, padx=5, pady=5)
-   #b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
-   #b2.pack(side=LEFT, padx=5, pady=5)
-   b3 = Button(root, text='Quit', command=root.quit)
-   b3.pack(side=LEFT, padx=5, pady=5)
-   update_status(ents, "Waiting for entry...")
-   update_message(ents, "Enter dates as mm/dd/yy!")
-   root.mainloop()
+    #test1=raw_input("gimme something")
+    #test2=raw_input("gimme more")
+    root = Tk()
+    ents = makeform(root, account_password_dates_fields)
+    root.bind('<Return>', (lambda event, e=ents: fetch(e)))
+    update_status(ents, "Starting...")
+    b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)))
+    b1.pack(side=LEFT, padx=5, pady=5)
+    #b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
+    #b2.pack(side=LEFT, padx=5, pady=5)
+    b3 = Button(root, text='Quit', command=root.quit)
+    b3.pack(side=LEFT, padx=5, pady=5)
+    update_status(ents, "Waiting for entry...")
+    update_message(ents, "Enter dates as mm/dd/yy!")
+    root.mainloop()
