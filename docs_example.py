@@ -15,6 +15,14 @@
 # limitations under the License.
 
 
+# By DaleEMoore@gMail.Com; this file might be from
+# http://fossies.org/dox/gdata-2.0.18/docs__example_8py_source.html
+# http://code.google.com/p/gdata-python-client/source/browse/samples/docs/docs_example.py?r=5bd5d560b263ae2076ebdd7af6b5da5663ec7c16
+# http://www.sourcecodebrowser.com/python-gdata/2.0.8/namespacedocs__example.html
+# http://en.wikipedia.org/wiki/Google_I/O
+# http://code.google.com/p/gdata-python-client/downloads/list
+
+
 __author__ = ('api.jfisher (Jeff Fisher), '
               'e.bidelman (Eric Bidelman)')
 

@@ -9,6 +9,11 @@ TODOs
 Capture recent time from the calendar.
     Use enter2, or enter3 to capture account, password, calendar, start_date, end_date, filter.
         Remember them for next run.
+    Access Google Calendar via API?
+        https://developers.google.com/google-apps/calendar/v2/developers_guide_python (Deprecated but Python examples.)
+        https://developers.google.com/google-apps/calendar/
+        https://developers.google.com/google-apps/calendar/v1/developers_guide_python
+        https://developers.google.com/google-apps/calendar/v2/developers_guide_python
     Output events to CSV
         to Quick Books
         to Quicken
