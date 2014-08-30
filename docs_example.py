@@ -16,6 +16,9 @@
 
 
 # By DaleEMoore@gMail.Com; this file might be from
+# https://code.google.com/p/gdata-python-client/downloads/list
+# https://developers.google.com/google-apps/calendar/v2/developers_guide_protocol?csw=1
+# https://code.google.com/p/gdata-python-client/
 # http://fossies.org/dox/gdata-2.0.18/docs__example_8py_source.html
 # http://code.google.com/p/gdata-python-client/source/browse/samples/docs/docs_example.py?r=5bd5d560b263ae2076ebdd7af6b5da5663ec7c16
 # http://www.sourcecodebrowser.com/python-gdata/2.0.8/namespacedocs__example.html

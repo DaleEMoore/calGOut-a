@@ -56,14 +56,15 @@ def update_message(entries, message_description):
 #        update_message(entries, exc_traceback)
 
 def get_events(entries):
+    update_status(ents, "Processing...")
     try:
         # get values from user
         account = entries['Google Account'].get()
         password = entries['Google Account Password'].get()
         d1 = entries['Start Date'].get()
-        start_date = datetime.datetime.strptime(d1, '%m/%d/%y')
+        start_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         d1 = entries['End Date'].get()
-        end_date = datetime.datetime.strptime(d1, '%m/%d/%y')
+        end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         destination_file = entries['Destination File'].get()
         print account, password, start_date, end_date, destination_file
         # validate date fields since I don't have a date picker yet.
@@ -77,6 +78,7 @@ def get_events(entries):
         #print exc_type
         #print exc_value
         #print exc_traceback
+    update_status(ents, "Waiting for entry...")
 
 def makeform(root, fieldsList):
    entries = {}
@@ -85,7 +87,7 @@ def makeform(root, fieldsList):
       # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
       # TODO; if name is "Message" make it multi-line.
       lab = Label(row, width=22, text=field+": ", anchor='w')
-      ent = Entry(row, width=40)
+      ent = Entry(row, width=50)
       ent.insert(0,"")
       #ent.insert(0,"0")
       row.pack(side=TOP, fill=X, padx=5, pady=5)
@@ -108,5 +110,5 @@ if __name__ == '__main__':
     b3 = Button(root, text='Quit', command=root.quit)
     b3.pack(side=LEFT, padx=5, pady=5)
     update_status(ents, "Waiting for entry...")
-    update_message(ents, "Enter dates as mm/dd/yy!")
+    update_message(ents, "Enter dates as mm/dd/yyyy!")
     root.mainloop()
