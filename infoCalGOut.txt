@@ -2,7 +2,10 @@ Overview
 Calendar Google Out to Quick Books, Quicken, OpenERP, Odoo or some other invoicing program.
 
 Keep your scheduled events in Google Calendar, perform the events, then bill for the time.
+get and install google gdata.
 
+python27\scripts\pip install --upgrade google-api-python-client
+https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
@@ -10,6 +13,10 @@ Capture recent time from the calendar.
     Use enter2, or enter3 to capture account, password, calendar, start_date, end_date, filter.
         Remember them for next run.
     Access Google Calendar via API?
+        https://github.com/tpopela/google_calendar_fetcher
+        https://github.com/search?utf8=%E2%9C%93&q=google+calendar+python&type=Repositories&ref=searchresults
+        https://developers.google.com/api-client-library/python/start/get_started
+        https://developers.google.com/api-client-library/python/samples/samples#Calendar_API
         https://developers.google.com/google-apps/calendar/v2/developers_guide_python (Deprecated but Python examples.)
         https://developers.google.com/google-apps/calendar/
         https://developers.google.com/google-apps/calendar/v1/developers_guide_python
