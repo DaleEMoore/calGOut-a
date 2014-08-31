@@ -256,8 +256,12 @@ if __name__ == '__main__':
                 "on one line separated by space!")
         sys.exit(2)
 
-    username = None
-    password = None
+    # TODO; get the username and password from somewhere secret.
+    # TODO; setup MooreWorksTest, t3st.ts3t, email account?
+    username = "MooreWorksService"
+    password = "s3rvic3.M3"
+    #username = None
+    #password = None
 
     for option, argument in opts:
         if option in ("-f", "--filename"):
