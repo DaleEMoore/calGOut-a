@@ -15,9 +15,13 @@ __author__ = 'dalem'
 # From: http://stackoverflow.com/questions/18636792/tkinter-get-data-from-a-entry-widget
 
 import datetime
-import gdata
+#import gdata
+import google_calendar_fetcher
 import sys, traceback
-from Tkinter import *
+from tkinter import * # Python3
+#from Tkinter import * # Python2
+
+
 account_password_dates_fields = ('Status',
                                  'Message',
                                  'Google Account',
@@ -58,9 +62,9 @@ def update_message(entries, message_description):
 
 def PrintUserCalendars(calendar_client):
     feed = calendar_client.GetAllCalendarsFeed()
-    print feed.title.text
+    print (feed.title.text)
     for i, a_calendar in enumerate(feed.entry):
-        print '\t%s. %s' % (i, a_calendar.title.text,)
+        print ('\t%s. %s' % (i, a_calendar.title.text,))
 
 def get_events(entries):
     update_status(ents, "Processing...")
@@ -73,12 +77,16 @@ def get_events(entries):
         d1 = entries['End Date'].get()
         end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         destination_file = entries['Destination File'].get()
-        print account, password, start_date, end_date, destination_file
+        print (account, password, start_date, end_date, destination_file)
         # validate date fields since I don't have a date picker yet.
         # TODO; get events from Google
-        client = gdata.calendar.client.CalendarClient(source='yourCo-yourAppName-v1')
-        client.ClientLogin(account, password, client.source)
-        PrintUserCalendars(client)
+        token = google_calendar_fetcher.login(account,password)
+        google_calendar_fetcher.get_calendars(token)
+        google_calendar_fetcher.print_output()
+
+        #client = gdata.calendar.client.CalendarClient(source='yourCo-yourAppName-v1')
+        #client.ClientLogin(account, password, client.source)
+        #PrintUserCalendars(client)
         # TODO; show events to user
         pass
     except:
