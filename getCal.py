@@ -81,8 +81,14 @@ def get_events(entries):
         # validate date fields since I don't have a date picker yet.
         # TODO; get events from Google
         token = google_calendar_fetcher.login(account,password)
-        google_calendar_fetcher.get_calendars(token)
-        google_calendar_fetcher.print_output()
+        try:
+            google_calendar_fetcher.get_calendars(token)
+            google_calendar_fetcher.print_header()
+            google_calendar_fetcher.print_output()
+        except:
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            update_message(entries, exc_value)
+            traceback.print_exc()
 
         #client = gdata.calendar.client.CalendarClient(source='yourCo-yourAppName-v1')
         #client.ClientLogin(account, password, client.source)
@@ -129,4 +135,15 @@ if __name__ == '__main__':
     b3.pack(side=LEFT, padx=5, pady=5)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as mm/dd/yyyy!")
+
+    ents['Google Account'].delete(0,END)
+    ents['Google Account'].insert(0, "MooreWorksService")
+    ents['Google Account Password'].delete(0,END)
+    ents['Start Date'].delete(0,END)
+    ents['Start Date'].insert(0, "01/01/0001")
+    ents['End Date'].delete(0,END)
+    ents['End Date'].insert(0, "12/31/9999")
+    ents['Destination File'].delete(0,END)
+    ents['Destination File'].insert(0, "t1")
+
     root.mainloop()

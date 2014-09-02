@@ -190,7 +190,7 @@ def print_output():
         if (delta.seconds < 0):
             continue
 
-#        print(key + " " + value + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600))
+        print(key + " " + value + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600))
 
         if (time is True and (delta.days == 0 or delta.days == -1)):
             if (delta.days >= 0):
