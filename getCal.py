@@ -1,5 +1,5 @@
 # getCal.py
-__author__ = 'dalem'
+__author__ = 'DaleEMoore@gMail.Com'
 
 # Dialog box for user to enter
 #   Google account and password
@@ -9,7 +9,6 @@ __author__ = 'dalem'
 #       "Bill Columbia ITs for Westar accounting report improvements"
 
 # Keep these values for the next time this program is run.
-# TODO; figure out a way to keep the Google account password secret.
 
 
 # From: http://stackoverflow.com/questions/18636792/tkinter-get-data-from-a-entry-widget
@@ -28,6 +27,7 @@ account_password_dates_fields = ('Status',
                                  'Google Account Password',
                                  'Start Date',
                                  'End Date',
+                                 'Search String',
                                  'Destination File')
 
 
@@ -79,11 +79,11 @@ def get_events(entries):
         destination_file = entries['Destination File'].get()
         print (account, password, start_date, end_date, destination_file)
         # validate date fields since I don't have a date picker yet.
-        # TODO; get events from Google
+        # get events from Google
         token = google_calendar_fetcher.login(account,password)
         try:
             google_calendar_fetcher.get_calendars(token)
-            google_calendar_fetcher.print_header()
+            # TODO; filter events by Start Date, End Date and Search String.
             google_calendar_fetcher.print_output()
         except:
             exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -110,6 +110,9 @@ def makeform(root, fieldsList):
       row = Frame(root)
       # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
       # TODO; if name is "Message" make it multi-line.
+      # TODO; password entry might include 'show="*"' like the following..
+      #user = makeentry(parent, "User name:", 10)
+      #password = makeentry(parent, "Password:", 10, show="*")
       lab = Label(row, width=22, text=field+": ", anchor='w')
       ent = Entry(row, width=50)
       ent.insert(0,"")
@@ -123,27 +126,36 @@ def makeform(root, fieldsList):
 if __name__ == '__main__':
     #test1=raw_input("gimme something")
     #test2=raw_input("gimme more")
+    # TODO; catch ENTER from form and don't generate an error.
     root = Tk()
     ents = makeform(root, account_password_dates_fields)
-    root.bind('<Return>', (lambda event, e=ents: fetch(e)))
+    root.bind('<Return>', (lambda event, e=ents: e.get()))
+    #root.bind('<Return>', (lambda event, e=ents: fetch(e)))
     update_status(ents, "Starting...")
-    b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)))
+    # TODO; Is there a menu accelerator key for tkinter buttons?
+    b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)), underline=0)
     b1.pack(side=LEFT, padx=5, pady=5)
     #b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
     #b2.pack(side=LEFT, padx=5, pady=5)
-    b3 = Button(root, text='Quit', command=root.quit)
+    b3 = Button(root, text='Quit', command=root.quit, underline=0)
     b3.pack(side=LEFT, padx=5, pady=5)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as mm/dd/yyyy!")
 
+    # TODO; figure out a way to keep the Google account password secret.
     ents['Google Account'].delete(0,END)
     ents['Google Account'].insert(0, "MooreWorksService")
     ents['Google Account Password'].delete(0,END)
+    #ents['Google Account Password'].insert(0,END, "password")
     ents['Start Date'].delete(0,END)
     ents['Start Date'].insert(0, "01/01/0001")
     ents['End Date'].delete(0,END)
     ents['End Date'].insert(0, "12/31/9999")
+    ents['Search String'].delete(0,END)
+    ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
     ents['Destination File'].insert(0, "t1")
+
+    ents['Google Account Password'].focus()
 
     root.mainloop()

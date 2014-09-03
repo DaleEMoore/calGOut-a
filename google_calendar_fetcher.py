@@ -98,9 +98,12 @@ def get_calendar_entries(calendar_id, token_header):
     ''' Get entries (until one month) from calendar '''
 
     now = datetime.date.today()
-    now_plus_month = now + relativedelta(months=+1)
-    values = {'start-min': now.strftime("%Y-%m-%d") + "T00:00:00",
-              'start-max': now_plus_month.strftime("%Y-%m-%d") + "T23:59:59"}
+    startDate = now + relativedelta(weeks=-1)
+    endDate = now
+    #startDate = datetime.date.today()
+    #endDate = startDate + relativedelta(months=+1)
+    values = {'start-min': startDate.strftime("%Y-%m-%d") + "T00:00:00",
+              'start-max': endDate.strftime("%Y-%m-%d") + "T23:59:59"}
 
     url = "%s?%s" % (calendar_id, urlencode(values))
 
@@ -121,27 +124,32 @@ def parse_events(raw_xml):
     for entry in entries:
         title = entry.find('{http://www.w3.org/2005/Atom}title')
         when = entry.find('{http://schemas.google.com/g/2005}when')
+        try:
+            startTime = when.get('startTime')
+        except:
+            now = datetime.date.today()
+            startTime = now.strftime("%Y-%m-%d") + "T00:00:00"
         if title.text is None:
-            __events__['No subject'] = when.get('startTime')
+            __events__['No subject'] = startTime
         else:
-            __events__[title.text] = when.get('startTime')
+            __events__[title.text] = startTime
 
-
-def get_name_day():
-    ''' Gets name day '''
-    url_name_day = 'http://svatky.adresa.info/txt'
-    response, content = httplib2.Http().request(url_name_day)
-
-    assert response.status == 200,\
-        "Can't get name day (network error?)"
-
-    if content.decode() == "":
-        return ""
-
-    temp_name_day = content.decode().split(";")
-    name_day = temp_name_day[1].split("\n")
-
-    return " - " + name_day[0]
+# DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
+#def get_name_day():
+#    ''' Gets name day '''
+#    url_name_day = 'http://svatky.adresa.info/txt'
+#    response, content = httplib2.Http().request(url_name_day)
+#
+#    assert response.status == 200,\
+#        "Can't get name day (network error?)"
+#
+#    if content.decode() == "":
+#        return ""
+#
+#    temp_name_day = content.decode().split(";")
+#    name_day = temp_name_day[1].split("\n")
+#
+#    return " - " + name_day[0]
 
 
 def print_header():
@@ -150,13 +158,14 @@ def print_header():
     now = datetime.datetime.now()
     output = ""
 
-    output = "Today is " + now.strftime("%d.%m.%Y") + ", "
+    output = "Today is " + now.strftime("%Y-%m-%d") + ", "
     if (int(now.strftime("%W"))) % 2 == 0:
         output += "even week"
     else:
         output += "odd week"
 
-    output += get_name_day()
+    # DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
+    #output += get_name_day()
 
     print(output)
 
@@ -225,9 +234,9 @@ def print_output():
             output_line += event_start_time.strftime("%d.%m.%Y %H:%M ")
         else:
             if (delta.days <= -1):
-                output_line += now.strftime("%d.%m.%Y       ")
+                output_line += now.strftime("%Y-%m-%d       ")
             else:
-                output_line += event_start_time.strftime("%d.%m.%Y       ")
+                output_line += event_start_time.strftime("%Y-%m-%d      ")
 
         output_line += key
 
