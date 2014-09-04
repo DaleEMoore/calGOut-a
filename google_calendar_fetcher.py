@@ -69,6 +69,10 @@ def parse_calendars(xml_calendars, token_header):
     tree = etree.XML(xml_calendars)
     calendars = tree.findall('{http://www.w3.org/2005/Atom}entry')
     for calendar in calendars:
+        calendar_content = calendar.find('{http://www.w3.org/2005/Atom}title')
+        calendar_title = calendar_content.text
+        print("Calendar: " + calendar_title)
+        #calendar_title = calendar.get('title')
         calendar_content = calendar.find('{http://www.w3.org/2005/Atom}content')
         calendar_id = calendar_content.get('src')
         get_calendar_entries(calendar_id, token_header)
@@ -101,18 +105,32 @@ def parse_events(raw_xml):
 
     tree = etree.XML(raw_xml)
     entries = tree.findall('{http://www.w3.org/2005/Atom}entry')
+    print ("Parsing...")
     for entry in entries:
         title = entry.find('{http://www.w3.org/2005/Atom}title')
         when = entry.find('{http://schemas.google.com/g/2005}when')
         try:
             startTime = when.get('startTime')
         except:
+            print ("Warning: startTime None")
+            #print (entry)
             now = datetime.date.today()
             startTime = now.strftime("%Y-%m-%d") + "T00:00:00"
+        try:
+            endTime = when.get('endTime')
+        except:
+            print ("Warning: endTime None")
+            #print (entry)
+            endTime = startTime
+        # Note: if startTime and endTime == None then the event is All Day.
+        # TODO; Add duration of event to output
+        # TODO; Add calendar title of event to output
         if title.text is None:
             __events__['No subject'] = startTime
+            print("title.text None")
         else:
             __events__[title.text] = startTime
+            print(title.text)
 
 # DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
 #def get_name_day():
@@ -154,7 +172,7 @@ def printOut():
     ''' Prints events to stdout '''
 
     #print_header()
-
+    print("Outputing...")
     output_line = ""
 
     now = datetime.datetime.now()
@@ -178,6 +196,7 @@ def printOut():
         delta = event_start_time - now
         if (delta.seconds < 0):
             continue
+        # TODO; Add duration of event to output
         # TODO; match fields to old output
         # TODO; match fields to new labels
         outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours"'
