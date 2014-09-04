@@ -84,7 +84,8 @@ def get_events(entries):
         try:
             google_calendar_fetcher.get_calendars(token)
             # TODO; filter events by Start Date, End Date and Search String.
-            google_calendar_fetcher.print_output()
+            google_calendar_fetcher.printOut()
+            #google_calendar_fetcher.print_output()
         except:
             exc_type, exc_value, exc_traceback = sys.exc_info()
             update_message(entries, exc_value)

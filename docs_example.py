@@ -357,4 +357,5 @@ def main():
 if __name__ == '__main__':
   main()
 
-# TODO; fails to run under pyCharm. Runs fine in Terminal.
+# Fails to run under pyCharm in Python2; runs fine in Terminal.
+# Runs in pyCharm in Python3.

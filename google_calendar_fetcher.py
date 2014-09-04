@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
+"""
+From: https://github.com/tpopela/google_calendar_fetcher
+For Python3
 
-''' Gets Google Calendar's account events and prints them to stdout '''
+Gets Google Calendar's account events and prints them to stdout
+"""
 
 import getopt
 from urllib.parse import urlencode
@@ -9,30 +13,6 @@ import datetime
 from dateutil.relativedelta import *
 import xml.etree.ElementTree as etree
 from operator import itemgetter
-"""
-From: https://github.com/tpopela/google_calendar_fetcher
-For Python3
-
-google\_calendar\_fetcher
-=======================
-
-Google Calendar fetcher written in Python 3. Prints events on stdout.
-
-Usage
------
-
-`$cat credentials`
-`username password`
-
-`$./google_calendar_fetcher.py --filename credentials`
-
-`Today is 04.08.2012, odd week - Dominik`
-`In  6 days  10.08.2012       Event1`
-`In  7 days  11.08.2012       Event2`
-`In  8 days  12.08.2012       Event3`
-`In 18 days  22.08.2012       Event4`
-`In 19 days  23.08.2012       Event5`
-"""
 
 __events__ = {}
 
@@ -168,6 +148,113 @@ def print_header():
     #output += get_name_day()
 
     print(output)
+
+
+def printOut():
+    ''' Prints events to stdout '''
+
+    #print_header()
+
+    output_line = ""
+
+    now = datetime.datetime.now()
+
+    events_sorted = sorted(__events__.items(), key=itemgetter(1))
+
+#    for key, value in events_sorted:
+#       print(key + " " + value)
+
+    for key, value in events_sorted:
+
+        if len(value) == 10:
+            event_start_time = datetime.datetime.strptime(value, "%Y-%m-%d")
+            time = False
+        else:
+            date_time = value.split('.')
+            event_start_time = datetime.datetime.strptime(date_time[0],
+                                                          "%Y-%m-%dT%H:%M:%S")
+            time = True
+
+        delta = event_start_time - now
+        if (delta.seconds < 0):
+            continue
+        # TODO; match fields to old output
+        # TODO; match fields to new labels
+        outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours"'
+        print (outHead1)
+        outDetail1 = '"{}", "{}", "{}", "{}", "{}"'.format(key, value, str(delta.seconds), str(delta), str(delta.seconds // 3600))
+        print (outDetail1)
+        print("1:" + key + " " + value + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600))
+        pass
+
+        outWhen = ""
+        if (time is True and (delta.days == 0 or delta.days == -1)):
+            if (delta.days >= 0):
+                diff = delta.seconds // 3600
+                if (now.day == event_start_time.day):
+                    if (diff == 0):
+                        outWhen = "Now"
+                        output_line += "Now         "
+                    elif (diff == 1):
+                        outWhen = "In 1 hour"
+                        output_line += "In  1 hour  "
+                    else:
+                        if (diff < 10):
+                            outWhen = "In  " + str(diff) + " hours "
+                            output_line += "In  " + str(diff) + " hours "
+                        else:
+                            outWhen = "In " + str(diff) + " hours "
+                            output_line += "In " + str(diff) + " hours "
+                else:
+                    outWhen = "Tomorrow"
+                    output_line += "Tomorrow    "
+            else:
+                outWhen = ""
+                continue
+        else:
+            if (delta.days < 0):
+                outWhen = "Today"
+                output_line += "Today       "
+            elif (delta.days == 0):
+                outWhen = "Tomorrow"
+                output_line += "Tomorrow    "
+            else:
+                if (delta.days > 8):
+                    outWhen = "In "
+                    output_line += "In "
+                else:
+                    outWhen = "In "
+                    output_line += "In  "
+                outWhen += str(delta.days + 1) + " days  "
+                output_line += str(delta.days + 1) + " days  "
+
+        outStart = ""
+        if (time is True):
+            outStart = event_start_time.strftime("%Y-%m-%d %H:%M ")
+            output_line += event_start_time.strftime("%d.%m.%Y %H:%M ")
+        else:
+            if (delta.days <= -1):
+                outStart = now.strftime("%Y-%m-%d")
+                output_line += now.strftime("%Y-%m-%d       ")
+            else:
+                outStart = event_start_time.strftime("%Y-%m-%d")
+                output_line += event_start_time.strftime("%Y-%m-%d      ")
+
+        output_line += key
+
+        if (output_line != ""):
+            outHead2 = '"When", "Start"'
+            print (outHead2)
+            outDetail2 = '"{}", "{}"'.format(outWhen, outStart)
+            print (outDetail2)
+            print("2:" + output_line)
+            pass
+
+        print(outHead1, outHead2)
+        print(outDetail1, outDetail2)
+
+        output_line = ""
+        time = False
 
 
 def print_output():
