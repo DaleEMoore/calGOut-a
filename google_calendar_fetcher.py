@@ -126,10 +126,10 @@ def parse_events(raw_xml):
         # TODO; Add duration of event to output
         # TODO; Add calendar title of event to output
         if title.text is None:
-            __events__['No subject'] = startTime
+            __events__['No subject'] = startTime, endTime
             print("title.text None")
         else:
-            __events__[title.text] = startTime
+            __events__[title.text] = startTime, endTime
             print(title.text)
 
 # DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
@@ -184,26 +184,34 @@ def printOut():
 
     for key, value in events_sorted:
 
-        if len(value) == 10:
-            event_start_time = datetime.datetime.strptime(value, "%Y-%m-%d")
+        startTime, endTime = value
+        if len(startTime) == 10:
+            event_start_time = datetime.datetime.strptime(startTime, "%Y-%m-%d")
             time = False
         else:
-            date_time = value.split('.')
+            date_time = startTime.split('.')
             event_start_time = datetime.datetime.strptime(date_time[0],
                                                           "%Y-%m-%dT%H:%M:%S")
             time = True
+        if len(endTime) == 10:
+            event_end_time = datetime.datetime.strptime(endTime, "%Y-%m-%d")
+        else:
+            date_time = endTime.split('.')
+            event_end_time = datetime.datetime.strptime(date_time[0],
+                                                          "%Y-%m-%dT%H:%M:%S")
 
+        event_duration = event_end_time - event_start_time
         delta = event_start_time - now
         if (delta.seconds < 0):
             continue
         # TODO; Add duration of event to output
         # TODO; match fields to old output
         # TODO; match fields to new labels
-        outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours"'
+        outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours"', "endTime", "duration"
         print (outHead1)
-        outDetail1 = '"{}", "{}", "{}", "{}", "{}"'.format(key, value, str(delta.seconds), str(delta), str(delta.seconds // 3600))
+        outDetail1 = '"{}", "{}", "{}", "{}", "{}", "{}", "{}"'.format(key, event_start_time, str(delta.seconds), str(delta), str(delta.seconds // 3600), event_end_time, event_duration)
         print (outDetail1)
-        print("1:" + key + " " + value + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600))
+        print("1:" + key + " " + ''.join(value) + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600))
         pass
 
         outWhen = ""
