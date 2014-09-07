@@ -1,17 +1,6 @@
-# getCal.py
-__author__ = 'DaleEMoore@gMail.Com'
+# main.py
+# Get user input and Google calendar events
 
-# Dialog box for user to enter
-#   Google account and password
-#   Start date and time
-#   End date and time
-#   Search string, like DaleM includes "Bill" or "bill" on each event like:
-#       "Bill Columbia ITs for Westar accounting report improvements"
-
-# Keep these values for the next time this program is run.
-
-
-# From: http://stackoverflow.com/questions/18636792/tkinter-get-data-from-a-entry-widget
 
 import datetime
 #import gdata
@@ -19,6 +8,8 @@ import google_calendar_fetcher
 import sys, traceback
 from tkinter import * # Python3
 #from Tkinter import * # Python2
+
+__author__ = 'DaleEMoore@gMail.Com'
 
 
 def update_status(entries, status_description):
@@ -67,13 +58,14 @@ def get_events(entries):
         start_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         d1 = entries['End Date'].get()
         end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
+        search_string = entries['Search String'].get()
         destination_file = entries['Destination File'].get()
-        print (account, password, show_password, end_date, destination_file)
+        print (account, password, show_password, start_date, end_date, search_string, destination_file)
         # validate date fields since I don't have a date picker yet.
         # get events from Google
         token = google_calendar_fetcher.login(account,password)
         try:
-            google_calendar_fetcher.get_calendars(token)
+            google_calendar_fetcher.get_calendars(token, start_date, end_date, search_string, destination_file)
             # TODO; filter events by Start Date, End Date and Search String.
             google_calendar_fetcher.printOut()
             #google_calendar_fetcher.print_output()
@@ -112,7 +104,7 @@ def makeent(root, field):
     ent.pack(side=RIGHT, expand=YES, fill=X)
     return ent
 
-def makeform(root, fieldsList):
+def makeform(root):
     account_password_dates_fields = ('Status',
         'Message',
         'Google Account',
@@ -128,22 +120,42 @@ def makeform(root, fieldsList):
         entries[field] = makeent(root, field)
     return entries
 
+def func(event):
+    #print("You hit return.")
+    get_events(ents)
+
+#def func1(event):
+#    print("You hit Alt, Control or Shift-G.")
+#
+#def func2(event):
+#    print("You hit Alt-Q.")
+
 if __name__ == '__main__':
+    # TODO; Is there a menu accelerator key for tkinter buttons?
+    #       I was not able to get Alt-G or Alt-Q to bind. Something funny is going on.
     #test1=raw_input("gimme something")
     #test2=raw_input("gimme more")
-    # TODO; catch ENTER from form and don't generate an error.
     root = Tk()
     ents = makeform(root)
-    root.bind('<Return>', (lambda event, e=ents: e.get()))
+    #root.bind('<Return>', (get_events(root)))
+    # Catch ENTER from form and don't generate an error.
+    root.bind('<Return>', func)
+    # ENTER goes to tkinter.__init__.CallWrapper.__call__ when not bound to something.
+    #root.bind('<Return>', (lambda event, e=ents: e.get()))
     #root.bind('<Return>', (lambda event, e=ents: fetch(e)))
     update_status(ents, "Starting...")
-    # TODO; Is there a menu accelerator key for tkinter buttons?
-    b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)), underline=0)
+    b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)))
+    #b1 = Button(root, text='Get Events', command=(lambda e=ents: get_events(e)), underline=0)
     b1.pack(side=LEFT, padx=5, pady=5)
+    #root.bind('<Alt-G>', func1)
+    #root.bind('<Shift-G>', func1)
+    #root.bind('<Control-G>', func1)
     #b2 = Button(root, text='Monthly Payment', command=(lambda e=ents: monthly_payment(e)))
     #b2.pack(side=LEFT, padx=5, pady=5)
-    b3 = Button(root, text='Quit', command=root.quit, underline=0)
+    b3 = Button(root, text='Quit', command=root.quit)
+    #b3 = Button(root, text='Quit', command=root.quit, underline=0)
     b3.pack(side=LEFT, padx=5, pady=5)
+    #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as mm/dd/yyyy!")
 
@@ -153,7 +165,7 @@ if __name__ == '__main__':
     ents['Google Account Password'].delete(0,END)
     #ents['Google Account Password'].insert(0,END, "password")
     ents['Show Password'].delete(0,END)
-    ents['Show Password'].insert(0,END, "No")
+    ents['Show Password'].insert(0, "No")
     ents['Start Date'].delete(0,END)
     ents['Start Date'].insert(0, "01/01/0001")
     ents['End Date'].delete(0,END)

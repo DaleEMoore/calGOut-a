@@ -45,7 +45,7 @@ def login(username, password):
     return token
 
 
-def get_calendars(token):
+def get_calendars(token, filter_start, filter_end, filter_content, destination_file):
     ''' Gets calendars list '''
 
     token_header = "GoogleLogin auth=" + str(token)
@@ -58,12 +58,12 @@ def get_calendars(token):
     assert response.status == 200,\
         "Can't get calendars list (network error?)"
 
-    parse_calendars(content, token_header)
+    parse_calendars(content, token_header, filter_start, filter_end, filter_content, destination_file)
 
     return content
 
 
-def parse_calendars(xml_calendars, token_header):
+def parse_calendars(xml_calendars, token_header, filter_start, filter_end, filter_content, destination_file):
     ''' Parses calendars list '''
 
     tree = etree.XML(xml_calendars)
@@ -75,17 +75,21 @@ def parse_calendars(xml_calendars, token_header):
         #calendar_title = calendar.get('title')
         calendar_content = calendar.find('{http://www.w3.org/2005/Atom}content')
         calendar_id = calendar_content.get('src')
-        get_calendar_entries(calendar_id, token_header)
+        get_calendar_entries(calendar_id, token_header, filter_start, filter_end, filter_content, destination_file)
 
 
-def get_calendar_entries(calendar_id, token_header):
+def get_calendar_entries(calendar_id, token_header, filter_start, filter_end, filter_content, destination_file):
     ''' Get entries (until one month) from calendar '''
 
     now = datetime.date.today()
-    startDate = now + relativedelta(weeks=-1)
-    endDate = now
-    #startDate = datetime.date.today()
-    #endDate = startDate + relativedelta(months=+1)
+    if filter_start==None or filter_end==None:
+        startDate = filter_start
+        endDate = filter_end
+    else:
+        startDate = now + relativedelta(weeks=-1)
+        endDate = now
+        #startDate = datetime.date.today()
+        #endDate = startDate + relativedelta(months=+1)
     values = {'start-min': startDate.strftime("%Y-%m-%d") + "T00:00:00",
               'start-max': endDate.strftime("%Y-%m-%d") + "T23:59:59"}
 
@@ -97,15 +101,17 @@ def get_calendar_entries(calendar_id, token_header):
     assert response.status == 200,\
         "Can't get entries from calendar (network error?)"
 
-    parse_events(content)
+    parse_events(content, filter_content, destination_file)
 
 
-def parse_events(raw_xml):
+def parse_events(raw_xml, filter_content, destination_file):
     ''' Parses events '''
 
     tree = etree.XML(raw_xml)
     entries = tree.findall('{http://www.w3.org/2005/Atom}entry')
     print ("Parsing...")
+    FILTER_CONTENT = filter_content.upper()
+    # TODO; write to destination_file
     for entry in entries:
         title = entry.find('{http://www.w3.org/2005/Atom}title')
         when = entry.find('{http://schemas.google.com/g/2005}when')
@@ -123,14 +129,15 @@ def parse_events(raw_xml):
             #print (entry)
             endTime = startTime
         # Note: if startTime and endTime == None then the event is All Day.
-        # TODO; Add duration of event to output
+        # Add duration of event to output
         # TODO; Add calendar title of event to output
-        if title.text is None:
-            __events__['No subject'] = startTime, endTime
-            print("title.text None")
-        else:
-            __events__[title.text] = startTime, endTime
-            print(title.text)
+        if FILTER_CONTENT in title.text.upper():
+            if title.text is None:
+                __events__['No subject'] = startTime, endTime
+                print("title.text None")
+            else:
+                __events__[title.text] = startTime, endTime
+                print(title.text)
 
 # DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
 #def get_name_day():
