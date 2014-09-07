@@ -21,16 +21,6 @@ from tkinter import * # Python3
 #from Tkinter import * # Python2
 
 
-account_password_dates_fields = ('Status',
-                                 'Message',
-                                 'Google Account',
-                                 'Google Account Password',
-                                 'Start Date',
-                                 'End Date',
-                                 'Search String',
-                                 'Destination File')
-
-
 def update_status(entries, status_description):
     entries['Status'].delete(0,END)
     entries['Status'].insert(0, status_description )
@@ -72,12 +62,13 @@ def get_events(entries):
         # get values from user
         account = entries['Google Account'].get()
         password = entries['Google Account Password'].get()
+        show_password = entries['Show Password'].get()
         d1 = entries['Start Date'].get()
         start_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         d1 = entries['End Date'].get()
         end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         destination_file = entries['Destination File'].get()
-        print (account, password, start_date, end_date, destination_file)
+        print (account, password, show_password, end_date, destination_file)
         # validate date fields since I don't have a date picker yet.
         # get events from Google
         token = google_calendar_fetcher.login(account,password)
@@ -105,31 +96,44 @@ def get_events(entries):
         #print exc_traceback
     update_status(ents, "Waiting for entry...")
 
+def makeent(root, field):
+    row = Frame(root)
+    # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
+    # TODO; if name is "Message" make it multi-line.
+    # TODO; password entry might include 'show="*"' like the following..
+    #user = makeentry(parent, "User name:", 10)
+    #password = makeentry(parent, "Password:", 10, show="*")
+    lab = Label(row, width=22, text=field+": ", anchor='w')
+    ent = Entry(row, width=50)
+    ent.insert(0,"")
+    #ent.insert(0,"0")
+    row.pack(side=TOP, fill=X, padx=5, pady=5)
+    lab.pack(side=LEFT)
+    ent.pack(side=RIGHT, expand=YES, fill=X)
+    return ent
+
 def makeform(root, fieldsList):
-   entries = {}
-   for field in fieldsList:
-      row = Frame(root)
-      # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
-      # TODO; if name is "Message" make it multi-line.
-      # TODO; password entry might include 'show="*"' like the following..
-      #user = makeentry(parent, "User name:", 10)
-      #password = makeentry(parent, "Password:", 10, show="*")
-      lab = Label(row, width=22, text=field+": ", anchor='w')
-      ent = Entry(row, width=50)
-      ent.insert(0,"")
-      #ent.insert(0,"0")
-      row.pack(side=TOP, fill=X, padx=5, pady=5)
-      lab.pack(side=LEFT)
-      ent.pack(side=RIGHT, expand=YES, fill=X)
-      entries[field] = ent
-   return entries
+    account_password_dates_fields = ('Status',
+        'Message',
+        'Google Account',
+        'Google Account Password',
+        'Show Password',
+        'Start Date',
+        'End Date',
+        'Search String',
+        'Destination File',
+    )
+    entries = {}
+    for field in account_password_dates_fields:
+        entries[field] = makeent(root, field)
+    return entries
 
 if __name__ == '__main__':
     #test1=raw_input("gimme something")
     #test2=raw_input("gimme more")
     # TODO; catch ENTER from form and don't generate an error.
     root = Tk()
-    ents = makeform(root, account_password_dates_fields)
+    ents = makeform(root)
     root.bind('<Return>', (lambda event, e=ents: e.get()))
     #root.bind('<Return>', (lambda event, e=ents: fetch(e)))
     update_status(ents, "Starting...")
@@ -148,6 +152,8 @@ if __name__ == '__main__':
     ents['Google Account'].insert(0, "MooreWorksService")
     ents['Google Account Password'].delete(0,END)
     #ents['Google Account Password'].insert(0,END, "password")
+    ents['Show Password'].delete(0,END)
+    ents['Show Password'].insert(0,END, "No")
     ents['Start Date'].delete(0,END)
     ents['Start Date'].insert(0, "01/01/0001")
     ents['End Date'].delete(0,END)
