@@ -217,20 +217,17 @@ def printOut(file_out):
         delta = event_start_time - now
         if (delta.seconds < 0):
             continue
-        # TODO; Add duration of event to output
-        # TODO; match fields to old output
-        # TODO; match fields to new labels
         if not head1Written:
             outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours", "endTime", "duration"'
-            print (outHead1)
-            fOut.write(outHead1 + '\n')
-            head12Written = True
+            #print (outHead1)
+            #fOut.write(outHead1 + '\n')
+            head1Written = True
         outDetail1 = '"{}", "{}", "{}", "{}", "{}", "{}", "{}"'.format(key, event_start_time, str(delta.seconds), str(delta), str(delta.seconds // 3600), event_end_time, event_duration)
-        print (outDetail1)
-        fOut.write(outDetail1 + '\n')
+        #print (outDetail1)
+        #fOut.write(outDetail1 + '\n')
         s1 = "1:" + key + " " + ''.join(value) + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600)
         print(s1)
-        fOut.write(s1 + '\n')
+        #fOut.write(s1 + '\n')
         pass
 
         outWhen = ""
@@ -291,25 +288,23 @@ def printOut(file_out):
         if (output_line != ""):
             if not head2Written:
                 outHead2 = '"When", "Start"'
-                print (outHead2)
-                fOut.write(outHead2 + '\n')
+                #print (outHead2)
+                #fOut.write(outHead2 + '\n')
                 head2Written = True
             outDetail2 = '"{}", "{}"'.format(outWhen, outStart)
-            print (outDetail2)
-            fOut.write(outDetail2 + '\n')
-            print(outDetail2)
-            fOut.write(outDetail2 + '\n')
+            #print (outDetail2)
+            #fOut.write(outDetail2 + '\n')
             print("2:" + output_line)
-            fOut.write("2" + output_line + '\n')
+            #fOut.write("2" + output_line + '\n')
             pass
 
 
         if not head12Written:
-            print(outHead1, outHead2)
-            fOut.write(outHead1, outHead2 + '\n')
+            print(outHead1 + ', ' + outHead2)
+            fOut.write(outHead1 + ', ' + outHead2 + '\n')
             head12Written = True
-        print(outDetail1, outDetail2)
-        fOut.write(outDetail1 + outDetail2 + '\n')
+        print(outDetail1 + ', ' + outDetail2)
+        fOut.write(outDetail1 + ', ' + outDetail2 + '\n')
 
         output_line = ""
         time = False
@@ -397,7 +392,7 @@ def main(username, password):
     ''' Entry point '''
 
     token = login(username, password)
-    get_calendars(token)
+    get_calendars(token, "", "", "", "") # TODO; need better filter_start, _end, _content, destination
     print_output()
 
 if __name__ == '__main__':

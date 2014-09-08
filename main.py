@@ -158,8 +158,19 @@ if __name__ == '__main__':
     #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as mm/dd/yyyy!")
-
-    # TODO; figure out a way to keep the Google account password secret.
+    """
+    TODO; figure out a way to keep the Google account password secret.
+          google pycharm security passwords
+            python master password database
+                http://stackoverflow.com/questions/12042724/securely-storing-passwords-for-use-in-python-script
+                http://stackoverflow.com/questions/7014953/i-need-to-securely-store-a-username-and-password-in-python-what-are-my-options
+                https://docs.python.org/2/library/getpass.html
+                https://charlesleifer.com/blog/creating-a-personal-password-manager/
+            python Creating a personal password manager
+            PyCharm password database
+        Something creates a sqlite db and that could be my answer if encrypted.
+            Django project.
+    """
     ents['Google Account'].delete(0,END)
     ents['Google Account'].insert(0, "MooreWorksService")
     ents['Google Account Password'].delete(0,END)
@@ -167,13 +178,15 @@ if __name__ == '__main__':
     ents['Show Password'].delete(0,END)
     ents['Show Password'].insert(0, "No")
     ents['Start Date'].delete(0,END)
+    # TODO; Start Date should be Wednesday last week.
     ents['Start Date'].insert(0, "01/01/0001")
     ents['End Date'].delete(0,END)
+    # TODO; End Date should be yesterday.
     ents['End Date'].insert(0, "12/31/9999")
     ents['Search String'].delete(0,END)
     ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
-    ents['Destination File'].insert(0, "t1")
+    ents['Destination File'].insert(0, "t1.csv")
 
     ents['Google Account Password'].focus()
 

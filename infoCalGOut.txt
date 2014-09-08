@@ -9,6 +9,15 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+
+
+
+Logs
+Thursday 14 August 2014 11:44 PM CST
+Created
+
+
+Monday 8 September 2014 5:05 PM CST
 Capture recent time from the calendar.
     Use enter2, or enter3 to capture account, password, calendar, start_date, end_date, filter.
         Remember them for next run.
@@ -25,9 +34,3 @@ Capture recent time from the calendar.
     Output events to CSV
         to Quick Books
         to Quicken
-
-
-
-Logs
-Thursday 14 August 2014 11:44 PM CST
-Created
