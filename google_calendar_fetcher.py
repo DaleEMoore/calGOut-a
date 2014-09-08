@@ -111,7 +111,6 @@ def parse_events(raw_xml, filter_content, destination_file):
     entries = tree.findall('{http://www.w3.org/2005/Atom}entry')
     print ("Parsing...")
     FILTER_CONTENT = filter_content.upper()
-    # TODO; write to destination_file
     for entry in entries:
         title = entry.find('{http://www.w3.org/2005/Atom}title')
         when = entry.find('{http://schemas.google.com/g/2005}when')
@@ -138,6 +137,7 @@ def parse_events(raw_xml, filter_content, destination_file):
             else:
                 __events__[title.text] = startTime, endTime
                 print(title.text)
+
 
 # DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
 #def get_name_day():
@@ -175,11 +175,17 @@ def print_header():
     print(output)
 
 
-def printOut():
+def printOut(file_out):
     ''' Prints events to stdout '''
 
     #print_header()
     print("Outputing...")
+    # write to destination_file
+    fOut = open(file_out, 'w')
+    #fOut = open('events.csv', 'w')
+    head1Written = False
+    head2Written = False
+    head12Written = False
     output_line = ""
 
     now = datetime.datetime.now()
@@ -214,11 +220,17 @@ def printOut():
         # TODO; Add duration of event to output
         # TODO; match fields to old output
         # TODO; match fields to new labels
-        outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours"', "endTime", "duration"
-        print (outHead1)
+        if not head1Written:
+            outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours", "endTime", "duration"'
+            print (outHead1)
+            fOut.write(outHead1 + '\n')
+            head12Written = True
         outDetail1 = '"{}", "{}", "{}", "{}", "{}", "{}", "{}"'.format(key, event_start_time, str(delta.seconds), str(delta), str(delta.seconds // 3600), event_end_time, event_duration)
         print (outDetail1)
-        print("1:" + key + " " + ''.join(value) + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600))
+        fOut.write(outDetail1 + '\n')
+        s1 = "1:" + key + " " + ''.join(value) + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600)
+        print(s1)
+        fOut.write(s1 + '\n')
         pass
 
         outWhen = ""
@@ -277,18 +289,31 @@ def printOut():
         output_line += key
 
         if (output_line != ""):
-            outHead2 = '"When", "Start"'
-            print (outHead2)
+            if not head2Written:
+                outHead2 = '"When", "Start"'
+                print (outHead2)
+                fOut.write(outHead2 + '\n')
+                head2Written = True
             outDetail2 = '"{}", "{}"'.format(outWhen, outStart)
             print (outDetail2)
+            fOut.write(outDetail2 + '\n')
+            print(outDetail2)
+            fOut.write(outDetail2 + '\n')
             print("2:" + output_line)
+            fOut.write("2" + output_line + '\n')
             pass
 
-        print(outHead1, outHead2)
+
+        if not head12Written:
+            print(outHead1, outHead2)
+            fOut.write(outHead1, outHead2 + '\n')
+            head12Written = True
         print(outDetail1, outDetail2)
+        fOut.write(outDetail1 + outDetail2 + '\n')
 
         output_line = ""
         time = False
+    fOut.close()
 
 
 def print_output():

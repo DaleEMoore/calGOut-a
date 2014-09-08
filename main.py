@@ -66,8 +66,8 @@ def get_events(entries):
         token = google_calendar_fetcher.login(account,password)
         try:
             google_calendar_fetcher.get_calendars(token, start_date, end_date, search_string, destination_file)
-            # TODO; filter events by Start Date, End Date and Search String.
-            google_calendar_fetcher.printOut()
+            # filter events by Start Date, End Date and Search String.
+            google_calendar_fetcher.printOut(destination_file)
             #google_calendar_fetcher.print_output()
         except:
             exc_type, exc_value, exc_traceback = sys.exc_info()
