@@ -158,8 +158,8 @@ if __name__ == '__main__':
     #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as mm/dd/yyyy!")
+    # TODO; figure out a way to keep the Google account password secret.
     s1 = """
-    TODO; figure out a way to keep the Google account password secret.
           google pycharm security passwords
             python master password database
                 http://stackoverflow.com/questions/12042724/securely-storing-passwords-for-use-in-python-script
@@ -181,12 +181,13 @@ if __name__ == '__main__':
     # TODO; Start Date should be Wednesday last week.
     ents['End Date'].delete(0,END)
     # TODO; End Date should be yesterday.
-    s1 = datetime.date.today()
+    dE = datetime.date.today() - datetime.timedelta(days=1)
     dow = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     #       0         1          2            3           4         5           6
     # date.weekday(); Monday is 0 and Sunday is 6
-    ents['End Date'].insert(0, s1)
-    ents['Start Date'].insert(0, "01/01/0001")
+    dS = dE - datetime.timedelta(days=6)
+    ents['End Date'].insert(0, dE)
+    ents['Start Date'].insert(0, dS)
     ents['Search String'].delete(0,END)
     ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
