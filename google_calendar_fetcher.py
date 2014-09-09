@@ -75,10 +75,10 @@ def parse_calendars(xml_calendars, token_header, filter_start, filter_end, filte
         #calendar_title = calendar.get('title')
         calendar_content = calendar.find('{http://www.w3.org/2005/Atom}content')
         calendar_id = calendar_content.get('src')
-        get_calendar_entries(calendar_id, token_header, filter_start, filter_end, filter_content, destination_file)
+        get_calendar_entries(calendar_id, token_header, filter_start, filter_end, filter_content, destination_file, calendar_title)
 
 
-def get_calendar_entries(calendar_id, token_header, filter_start, filter_end, filter_content, destination_file):
+def get_calendar_entries(calendar_id, token_header, filter_start, filter_end, filter_content, destination_file, calendar_title):
     ''' Get entries (until one month) from calendar '''
 
     now = datetime.date.today()
@@ -101,10 +101,10 @@ def get_calendar_entries(calendar_id, token_header, filter_start, filter_end, fi
     assert response.status == 200,\
         "Can't get entries from calendar (network error?)"
 
-    parse_events(content, filter_content, destination_file)
+    parse_events(content, filter_content, destination_file, calendar_title)
 
 
-def parse_events(raw_xml, filter_content, destination_file):
+def parse_events(raw_xml, filter_content, destination_file, calendar_title):
     ''' Parses events '''
 
     tree = etree.XML(raw_xml)
@@ -132,11 +132,11 @@ def parse_events(raw_xml, filter_content, destination_file):
         # TODO; Add calendar title of event to output
         if FILTER_CONTENT in title.text.upper():
             if title.text is None:
-                __events__['No subject'] = startTime, endTime
-                print("title.text None")
+                __events__['No subject'] = startTime, endTime, calendar_title
+                print(calendar_title, "title.text None")
             else:
-                __events__[title.text] = startTime, endTime
-                print(title.text)
+                __events__[title.text] = startTime, endTime, calendar_title
+                print(calendar_title, title.text)
 
 
 # DaleEMoore@gMail.Com, 3 Aug 3014 6:07 AM CST, who cares?
@@ -197,7 +197,7 @@ def printOut(file_out):
 
     for key, value in events_sorted:
 
-        startTime, endTime = value
+        startTime, endTime, calendar_title = value
         if len(startTime) == 10:
             event_start_time = datetime.datetime.strptime(startTime, "%Y-%m-%d")
             time = False
@@ -218,11 +218,14 @@ def printOut(file_out):
         if (delta.seconds < 0):
             continue
         if not head1Written:
-            outHead1 = '"Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours", "endTime", "duration"'
+            outHead1 = '"Calendar", "Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours", "endTime", "duration"'
             #print (outHead1)
             #fOut.write(outHead1 + '\n')
             head1Written = True
-        outDetail1 = '"{}", "{}", "{}", "{}", "{}", "{}", "{}"'.format(key, event_start_time, str(delta.seconds), str(delta), str(delta.seconds // 3600), event_end_time, event_duration)
+        s1 = key.replace('"',"'")
+        s2 = s1.replace(",",";")
+        s3 = str(delta).replace(",",";")
+        outDetail1 = '"{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}"'.format(calendar_title, s2, event_start_time, str(delta.seconds), str(s3), str(delta.seconds // 3600), event_end_time, event_duration)
         #print (outDetail1)
         #fOut.write(outDetail1 + '\n')
         s1 = "1:" + key + " " + ''.join(value) + " " + str(delta.seconds) + " " + str(delta) + "            " + str(delta.seconds // 3600)
