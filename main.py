@@ -53,7 +53,7 @@ def get_events(entries):
         # get values from user
         account = entries['Google Account'].get()
         password = entries['Google Account Password'].get()
-        show_password = entries['Show Password'].get()
+        #show_password = entries['Show Password'].get()
         d1 = entries['Start Date'].get()
         start_date = datetime.datetime.strptime(d1, '%Y-%m-%d')
         #start_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
@@ -62,7 +62,8 @@ def get_events(entries):
         #end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         search_string = entries['Search String'].get()
         destination_file = entries['Destination File'].get()
-        print (account, password, show_password, start_date, end_date, search_string, destination_file)
+        print (account, password, start_date, end_date, search_string, destination_file)
+        #print (account, password, show_password, start_date, end_date, search_string, destination_file)
         # validate date fields since I don't have a date picker yet.
         # get events from Google
         token = google_calendar_fetcher.login(account,password)
@@ -90,7 +91,7 @@ def get_events(entries):
         #print exc_traceback
     update_status(ents, "Waiting for entry...")
 
-def makeent(root, field):
+def makeent(root, field, showAss=False):
     row = Frame(root)
     # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
     # TODO; if name is "Message" make it multi-line.
@@ -98,9 +99,15 @@ def makeent(root, field):
     #user = makeentry(parent, "User name:", 10)
     #password = makeentry(parent, "Password:", 10, show="*")
     lab = Label(row, width=22, text=field+": ", anchor='w')
-    ent = Entry(row, width=50)
+    if showAss:
+        ent = Entry(row, width=50, show='*')
+    else:
+        ent = Entry(row, width=50)
+    #s1 = "Entry(row, width=50" + entryOpt + ")"
+    #s2 = exec("print(s1)")
+    #ent = exec(s1)
+    #ent = Entry(row, width=50)
     ent.insert(0,"")
-    #ent.insert(0,"0")
     row.pack(side=TOP, fill=X, padx=5, pady=5)
     lab.pack(side=LEFT)
     ent.pack(side=RIGHT, expand=YES, fill=X)
@@ -109,17 +116,18 @@ def makeent(root, field):
 def makeform(root):
     account_password_dates_fields = ('Status',
         'Message',
-        'Google Account',
-        'Google Account Password',
-        'Show Password',
         'Start Date',
         'End Date',
         'Search String',
         'Destination File',
+        'Google Account',
     )
+    #    'Google Account Password',
     entries = {}
     for field in account_password_dates_fields:
         entries[field] = makeent(root, field)
+    s1 = 'Google Account Password'
+    entries[s1] = makeent(root,s1, showAss=True)
     return entries
 
 def func(event):
@@ -133,7 +141,7 @@ def func(event):
 #    print("You hit Alt-Q.")
 
 if __name__ == '__main__':
-    # TODO; Is there a menu accelerator key for tkinter buttons?
+    # TODO; Is there a button accelerator key for tkinter buttons?
     #       I was not able to get Alt-G or Alt-Q to bind. Something funny is going on.
     #test1=raw_input("gimme something")
     #test2=raw_input("gimme more")
@@ -177,8 +185,8 @@ if __name__ == '__main__':
     ents['Google Account'].insert(0, "MooreWorksService")
     ents['Google Account Password'].delete(0,END)
     #ents['Google Account Password'].insert(0,END, "password")
-    ents['Show Password'].delete(0,END)
-    ents['Show Password'].insert(0, "No")
+    #ents['Show Password'].delete(0,END)
+    #ents['Show Password'].insert(0, "No")
     ents['Start Date'].delete(0,END)
     # TODO; Start Date should be Wednesday last week.
     ents['End Date'].delete(0,END)
