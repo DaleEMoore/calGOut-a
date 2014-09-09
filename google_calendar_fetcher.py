@@ -412,7 +412,7 @@ if __name__ == '__main__':
     # TODO; get the username and password from somewhere secret.
     # TODO; setup MooreWorksTest, t3st.ts3t, email account?
     username = "MooreWorksService"
-    password = "s3rvic3.M3"
+    password = "ReplaceWithRealPassword"
     #username = None
     #password = None
 
