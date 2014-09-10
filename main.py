@@ -95,7 +95,6 @@ def makeent(root, field, showAss=False):
     row = Frame(root)
     # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
     # TODO; if name is "Message" make it multi-line.
-    # TODO; password entry might include 'show="*"' like the following..
     #user = makeentry(parent, "User name:", 10)
     #password = makeentry(parent, "Password:", 10, show="*")
     lab = Label(row, width=22, text=field+": ", anchor='w')
@@ -167,7 +166,7 @@ if __name__ == '__main__':
     b3.pack(side=LEFT, padx=5, pady=5)
     #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
-    update_message(ents, "Enter dates as mm/dd/yyyy!")
+    update_message(ents, "Enter dates as yyyy-mm-dd!")
     # TODO; figure out a way to keep the Google account password secret.
     s1 = """
           google pycharm security passwords

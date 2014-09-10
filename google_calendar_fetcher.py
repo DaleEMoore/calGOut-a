@@ -128,8 +128,6 @@ def parse_events(raw_xml, filter_content, destination_file, calendar_title):
             #print (entry)
             endTime = startTime
         # Note: if startTime and endTime == None then the event is All Day.
-        # Add duration of event to output
-        # TODO; Add calendar title of event to output
         if FILTER_CONTENT in title.text.upper():
             if title.text is None:
                 __events__['No subject'] = startTime, endTime, calendar_title
@@ -402,6 +400,7 @@ if __name__ == '__main__':
     import sys
 
     try:
+        # TODO; file should contain filter_start, _end, _content, destination; also.
         opts, args = getopt.getopt(sys.argv[1:], "f", ["filename="])
     except getopt.GetoptError as err:
         print("Only argument is -f or --filename followed by name of file "
@@ -409,8 +408,7 @@ if __name__ == '__main__':
                 "on one line separated by space!")
         sys.exit(2)
 
-    # TODO; get the username and password from somewhere secret.
-    # TODO; setup MooreWorksTest, t3st.ts3t, email account?
+    # setup MooreWorksTest, t3st.ts3t, email account?
     username = "MooreWorksService"
     password = "ReplaceWithRealPassword"
     #username = None
