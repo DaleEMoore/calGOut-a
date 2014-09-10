@@ -86,8 +86,8 @@ def get_calendar_entries(calendar_id, token_header, filter_start, filter_end, fi
         startDate = filter_start
         endDate = filter_end
     else:
-        startDate = now + relativedelta(weeks=-1)
-        endDate = now
+        endDate = now - relativedelta(days=1) # Yesterday
+        startDate = endDate - relativedelta(days=6) # 7 days ago
         #startDate = datetime.date.today()
         #endDate = startDate + relativedelta(months=+1)
     values = {'start-min': startDate.strftime("%Y-%m-%d") + "T00:00:00",

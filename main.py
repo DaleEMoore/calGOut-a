@@ -62,7 +62,7 @@ def get_events(entries):
         #end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         search_string = entries['Search String'].get()
         destination_file = entries['Destination File'].get()
-        print (account, password, start_date, end_date, search_string, destination_file)
+        print (account, start_date, end_date, search_string, destination_file)
         #print (account, password, show_password, start_date, end_date, search_string, destination_file)
         # validate date fields since I don't have a date picker yet.
         # get events from Google
@@ -182,15 +182,16 @@ if __name__ == '__main__':
             Django project.
     """
     ents['Google Account'].delete(0,END)
-    ents['Google Account'].insert(0, "MooreWorksService")
+    ents['Google Account'].insert(0, "DaleEMoore")
+    #ents['Google Account'].insert(0, "MooreWorksService")
     ents['Google Account Password'].delete(0,END)
     #ents['Google Account Password'].insert(0,END, "password")
     #ents['Show Password'].delete(0,END)
     #ents['Show Password'].insert(0, "No")
     ents['Start Date'].delete(0,END)
-    # TODO; Start Date should be Wednesday last week.
+    # Start Date endDate - 6 days.
     ents['End Date'].delete(0,END)
-    # TODO; End Date should be yesterday.
+    # End Date is yesterday.
     dE = datetime.date.today() - datetime.timedelta(days=1)
     dow = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     #       0         1          2            3           4         5           6
