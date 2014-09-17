@@ -179,6 +179,7 @@ def printOut(file_out):
     #print_header()
     print("Outputing...")
     # write to destination_file
+    # TODO; Avoid when file_out is in use (PermissionError: [Errno 13] Permission denied: 't1.csv')
     fOut = open(file_out, 'w')
     #fOut = open('events.csv', 'w')
     head1Written = False
