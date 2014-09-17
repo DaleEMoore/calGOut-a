@@ -1,6 +1,10 @@
 # main.py
 # Get user input and Google calendar events
 
+# TODO; I didn't get all events when run on 9/17 for 9/10 - 9/16.
+#       missing 2 on 9/12, 9/14, and it looks like Google is missing some.
+# TODO: URGENT, Google's not getting everything?
+# TODO; Only pull from one calendar "Dale Moore"?
 
 import datetime
 #import gdata
