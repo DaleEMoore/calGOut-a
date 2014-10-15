@@ -9,6 +9,13 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Correct the discrepancy between Google Calendar and calGOut.
+    Look at Dale's Excel spreadsheet on Buba for discrepancies.
+
+Create install/setup?
+    python3
+    python3-tk
+    python-dateutil
 
 
 
