@@ -217,6 +217,7 @@ def printOut(file_out):
         if (delta.seconds < 0):
             continue
         if not head1Written:
+            # TODO; add Description or notes to output.
             outHead1 = '"Calendar", "Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours", "endTime", "duration"'
             #print (outHead1)
             #fOut.write(outHead1 + '\n')
