@@ -9,6 +9,14 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Sometimes errors when running, like We 19 Nov 2014 8:40 AM CST.
+    Traceback (most recent call last):
+      File "C:/Users/dalem/PycharmProjects/calGOut/main.py", line 75, in get_events
+        google_calendar_fetcher.get_calendars(token, start_date, end_date, search_string, destination_file)
+      File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_fetcher.py", line 59, in get_calendars
+        "Can't get calendars list (network error?)"
+    AssertionError: Can't get calendars list (network error?)
+
 Correct the discrepancy between Google Calendar and calGOut.
     Look at Dale's Excel spreadsheet on Buba for discrepancies.
 
