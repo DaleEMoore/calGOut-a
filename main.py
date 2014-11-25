@@ -1,6 +1,10 @@
 # main.py
 # Get user input and Google calendar events
 
+# TODO; I didn't get all events when run on 9/17 for 9/10 - 9/16.
+#       missing 2 on 9/12, 9/14, and it looks like Google is missing some.
+# TODO: URGENT, Google's not getting everything?
+# TODO; Only pull from one calendar "Dale Moore"?
 
 import datetime
 #import gdata
@@ -66,7 +70,7 @@ def get_events(entries):
         #end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         search_string = entries['Search String'].get()
         destination_file = entries['Destination File'].get()
-        print (account, password, start_date, end_date, search_string, destination_file)
+        print (account, start_date, end_date, search_string, destination_file)
         #print (account, password, show_password, start_date, end_date, search_string, destination_file)
         # validate date fields since I don't have a date picker yet.
         # get events from Google
@@ -99,7 +103,6 @@ def makeent(root, field, showAss=False):
     row = Frame(root)
     # TODO; if name includes "Date" make it a date field. tkinter doesn't have date picker I might roll my own.
     # TODO; if name is "Message" make it multi-line.
-    # TODO; password entry might include 'show="*"' like the following..
     #user = makeentry(parent, "User name:", 10)
     #password = makeentry(parent, "Password:", 10, show="*")
     lab = Label(row, width=22, text=field+": ", anchor='w')
@@ -171,7 +174,7 @@ if __name__ == '__main__':
     b3.pack(side=LEFT, padx=5, pady=5)
     #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
-    update_message(ents, "Enter dates as mm/dd/yyyy!")
+    update_message(ents, "Enter dates as yyyy-mm-dd!")
     # TODO; figure out a way to keep the Google account password secret.
     s1 = """
           google pycharm security passwords
@@ -186,15 +189,16 @@ if __name__ == '__main__':
             Django project.
     """
     ents['Google Account'].delete(0,END)
-    ents['Google Account'].insert(0, "MooreWorksService")
+    ents['Google Account'].insert(0, "DaleEMoore")
+    #ents['Google Account'].insert(0, "MooreWorksService")
     ents['Google Account Password'].delete(0,END)
     #ents['Google Account Password'].insert(0,END, "password")
     #ents['Show Password'].delete(0,END)
     #ents['Show Password'].insert(0, "No")
     ents['Start Date'].delete(0,END)
-    # TODO; Start Date should be Wednesday last week.
+    # Start Date endDate - 6 days.
     ents['End Date'].delete(0,END)
-    # TODO; End Date should be yesterday.
+    # End Date is yesterday.
     dE = datetime.date.today() - datetime.timedelta(days=1)
     dow = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     #       0         1          2            3           4         5           6

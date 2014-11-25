@@ -86,8 +86,8 @@ def get_calendar_entries(calendar_id, token_header, filter_start, filter_end, fi
         startDate = filter_start
         endDate = filter_end
     else:
-        startDate = now + relativedelta(weeks=-1)
-        endDate = now
+        endDate = now - relativedelta(days=1) # Yesterday
+        startDate = endDate - relativedelta(days=6) # 7 days ago
         #startDate = datetime.date.today()
         #endDate = startDate + relativedelta(months=+1)
     values = {'start-min': startDate.strftime("%Y-%m-%d") + "T00:00:00",
@@ -128,8 +128,6 @@ def parse_events(raw_xml, filter_content, destination_file, calendar_title):
             #print (entry)
             endTime = startTime
         # Note: if startTime and endTime == None then the event is All Day.
-        # Add duration of event to output
-        # TODO; Add calendar title of event to output
         if FILTER_CONTENT in title.text.upper():
             if title.text is None:
                 __events__['No subject'] = startTime, endTime, calendar_title
@@ -181,6 +179,7 @@ def printOut(file_out):
     #print_header()
     print("Outputing...")
     # write to destination_file
+    # TODO; Avoid when file_out is in use (PermissionError: [Errno 13] Permission denied: 't1.csv')
     fOut = open(file_out, 'w')
     #fOut = open('events.csv', 'w')
     head1Written = False
@@ -218,6 +217,7 @@ def printOut(file_out):
         if (delta.seconds < 0):
             continue
         if not head1Written:
+            # TODO; add Description or notes to output.
             outHead1 = '"Calendar", "Event", "DateTime", "DeltaSeconds", "Delta", "DeltaHours", "endTime", "duration"'
             #print (outHead1)
             #fOut.write(outHead1 + '\n')
@@ -402,6 +402,7 @@ if __name__ == '__main__':
     import sys
 
     try:
+        # TODO; file should contain filter_start, _end, _content, destination; also.
         opts, args = getopt.getopt(sys.argv[1:], "f", ["filename="])
     except getopt.GetoptError as err:
         print("Only argument is -f or --filename followed by name of file "
@@ -409,8 +410,7 @@ if __name__ == '__main__':
                 "on one line separated by space!")
         sys.exit(2)
 
-    # TODO; get the username and password from somewhere secret.
-    # TODO; setup MooreWorksTest, t3st.ts3t, email account?
+    # setup MooreWorksTest, t3st.ts3t, email account?
     username = "MooreWorksService"
     password = "ReplaceWithRealPassword"
     #username = None
