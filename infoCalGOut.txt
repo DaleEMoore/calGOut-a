@@ -9,6 +9,10 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+/usr/bin/python2.7 /home/dalem/PycharmProjects/calGOut/gcalcli.py agenda 11/22/14 11/26/14
+    Gives me lots of what I want.
+    What if I want to run against a different Google account?
+
 setup.py might be needed to install all the requirements in the VirtualEnvironment.
     If not dateutil.tz then run setup.py to get everything?
     sudo pip install python-dateutil --upgrade
