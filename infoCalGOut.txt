@@ -9,8 +9,22 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+setup.py might be needed to install all the requirements in the VirtualEnvironment.
+    If not dateutil.tz then run setup.py to get everything?
+    sudo pip install python-dateutil --upgrade
+    sudo pip install pytz --upgrade
 
+https://developers.google.com/google-apps/calendar/v1/developers_guide_dotnet
+    This API is a subject to the Deprecation Policy and will be shutdown on November 17, 2014. Please use APIv3 instead.
+    https://developers.google.com/google-apps/calendar/
+    Google Calendar API v3
+    https://developers.google.com/google-apps/calendar/v3/reference/calendars/get
+    Python Client Library
+    https://code.google.com/p/google-api-python-client/
+    https://developers.google.com/google-apps/calendar/migration
 
+    https://developers.google.com/google-apps/calendar/setup
+    https://developers.google.com/google-apps/calendar/instantiate
 
 Logs
 Thursday 14 August 2014 11:44 PM CST
@@ -34,3 +48,61 @@ Capture recent time from the calendar.
     Output events to CSV
         to Quick Books
         to Quicken
+
+Tuesday 25 November 2014 8:18 AM CST
+gcalcli.py
+# From https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
+calGOut gcalcli.py
+dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda
+
+Sat Nov 22           Blake and Kids in SA
+
+Tue Nov 25           Robbie in sa
+             5:00am  Moore Works Recycling pickup day
+             7:00am  Dale's Day; do what you want.
+             9:00am  ?Jack George at Moore works
+            11:30am  Lunch
+            12:00pm  Lunch
+             1:30pm  Check on SSFCU to Wells Fargo External account
+             1:30pm  Cover DaleHome Kitchen
+             6:00pm  Check Investments; use Google Stocks?
+             6:00pm  Clean toilets for Olivia
+             6:30pm  Steve Aronstein is home from walking the neighbor's dog.
+
+Wed Nov 26           Jo Anne Thomas's birthday
+                     Emily Nicole Rogers's birthday
+             8:00am  Drain hot water heater for 10 seconds
+             8:30am  Change A/C Filter or does the CPS thermostat tell me when?; Clorox A/C drain line
+             9:00am  All; MW billing, staff, programming
+             9:00am  Dale; Pay DaleEMoore eMail yellow-exclamation marked
+             9:00am  ?Jack George at Moore works
+             9:00am  Quest Diagnostics overpaid
+             9:00am  Change a/c filter home 14x25x1, mw 16x25x1; Change A/C Filter or does the CPS thermostat tell me when?; Clorox A/C drain line
+            10:00am  Keep Westar billing to less than 20 hours/month, about 4 hours/week
+            10:00am  Fix Abdo Complimentary Credit from last week!
+            11:30am  OFOWC
+             6:30pm  Steve Aronstein is home from walking the neighbor's dog.
+
+Thu Nov 27           Thanksgiving day.
+                     Thanksgiving Day (QC Holiday)
+                     Thanksgiving Day
+             5:00am  Bill $ $2,081.99/week = 16.66 hours (cover Moore Works expenses)
+             8:00am  Joanie and Dale in Austin
+            10:00am  Thanksgiving To Austin
+            11:00am  Thanksgiving in Austin
+             4:00pm  Mom early TDay dinner with Judy
+             6:30pm  Steve Aronstein is home from walking the neighbor's dog.
+
+Fri Nov 28           Day after Thanksgiving Day (QC Holiday)
+                     Don Williams's birthday
+             5:00am  Moore Works Garbage pickup day
+             9:00am  ?Jack George at Moore works
+             6:30pm  Steve Aronstein is home from walking the neighbor's dog.
+             8:00pm  Thanksgiving To San Antonio
+
+Sat Nov 29           Maile Kono-Wells bday
+                     Terry Ross's birthday
+             8:00am  To/From Austin Grandchildren
+             6:30pm  Steve Aronstein is home from walking the neighbor's dog.
+
+It looks like I've found the google-python-api v3 example I needed.

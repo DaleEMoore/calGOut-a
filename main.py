@@ -49,6 +49,8 @@ def PrintUserCalendars(calendar_client):
 
 def get_events(entries):
     update_status(ents, "Processing...")
+    # TODO; status isn't updated until this is done, this should be multiprocessing?
+    # Like: http://stackoverflow.com/questions/16699682/python-tkinter-status-bar-not-updating-correctly
     try:
         # get values from user
         account = entries['Google Account'].get()
@@ -58,7 +60,9 @@ def get_events(entries):
         start_date = datetime.datetime.strptime(d1, '%Y-%m-%d')
         #start_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         d1 = entries['End Date'].get()
-        end_date = datetime.datetime.strptime(d1, '%Y-%m-%d')
+        # change end_date to day+1 or time to 23:59:59
+        end_date = datetime.datetime.strptime(d1, '%Y-%m-%d')+datetime.timedelta(days=1)
+        #end_date = datetime.datetime.strptime(d1+datetime.timedelta(days=1), '%Y-%m-%d')
         #end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         search_string = entries['Search String'].get()
         destination_file = entries['Destination File'].get()
