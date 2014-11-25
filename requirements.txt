@@ -1,3 +1,4 @@
+#python=2 for google-api-python-client
 # I wonder if this is the proper syntax for describing the Python version?
 #python>=3 # Nope, just know that Python3 is required.
 # But google-api-python-client v3 seems to require Python2!
