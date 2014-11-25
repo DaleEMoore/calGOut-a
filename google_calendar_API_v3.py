@@ -80,5 +80,13 @@ while True:
 
 # TODO; get all calendars all events.
 # https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
+"""
+from gcalcli.py
+BowChickaWowWow
+AgendaQuery
+_IterateEvents
+_PrintEvent
+
+"""
 
 print("Bye world.")
