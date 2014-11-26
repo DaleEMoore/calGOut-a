@@ -68,6 +68,16 @@ while True:
   calendar_list = service.calendarList().list(pageToken=page_token).execute()
   for calendar_list_entry in calendar_list['items']:
     print "Calendar: " + calendar_list_entry['summary']
+    # TODO; get all calendars all events.
+    # https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
+    """
+    from gcalcli.py
+    BowChickaWowWow
+    AgendaQuery
+    eventList = self._SearchForCalEvents(start, None, searchText)
+    _IterateEvents
+    _PrintEvent
+    """
 
 
   page_token = calendar_list.get('nextPageToken')
@@ -78,15 +88,5 @@ while True:
     print("page_token")
 
 
-# TODO; get all calendars all events.
-# https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
-"""
-from gcalcli.py
-BowChickaWowWow
-AgendaQuery
-_IterateEvents
-_PrintEvent
-
-"""
 
 print("Bye world.")
