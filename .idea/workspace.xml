@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b9180b7-ab7c-4c34-ac77-952b40db4538" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/google_calendar_API_v3.py" afterPath="$PROJECT_DIR$/google_calendar_API_v3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/calGOut.iml" afterPath="$PROJECT_DIR$/.idea/calGOut.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="calGOut.iws" />
     <ignored path=".idea/workspace.xml" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,52 +27,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="infoCalGOut.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="infoCalGOut.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/infoCalGOut.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
+            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2397">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="3330">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="3774">
               <caret line="96" column="6" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="requirements.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gcalcli.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gcalcli.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gcalcli.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.296296" vertical-offset="4702" max-vertical-offset="33945">
-              <caret line="323" column="8" selection-start-line="323" selection-start-column="8" selection-end-line="323" selection-end-column="8" />
-              <folding>
-                <element signature="e#9063#9104#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.6010101" vertical-offset="5423" max-vertical-offset="38403">
+              <caret line="337" column="52" selection-start-line="337" selection-start-column="52" selection-end-line="337" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="google_calendar_API_v3.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="google_calendar_API_v3.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/google_calendar_API_v3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="812" max-vertical-offset="1380">
+            <state vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="1564">
               <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding />
             </state>
@@ -89,20 +87,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/infoCalGOut.txt" />
-        <option value="$PROJECT_DIR$/google_calendar_API_v3.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="328" />
-    <option name="y" value="121" />
-    <option name="width" value="1150" />
-    <option name="height" value="836" />
+    <option name="x" value="680" />
+    <option name="y" value="292" />
+    <option name="width" value="1230" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -130,6 +119,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -150,7 +140,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -183,7 +172,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.google_calendar_API_v3">
+  <component name="RunManager" selected="Python.gcalcli">
     <configuration default="false" name="enter5" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -198,7 +187,6 @@
       <module name="calGOut" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/enter5.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -217,7 +205,6 @@
       <module name="calGOut" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -238,7 +225,6 @@
       <module name="calGOut" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/google_calendar_fetcher.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -259,7 +245,6 @@
       <module name="calGOut" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gcalcli.py" />
       <option name="PARAMETERS" value="agenda 11/22/14 11/26/14" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -278,7 +263,6 @@
       <module name="calGOut" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/google_calendar_API_v3.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
@@ -342,7 +326,6 @@
       <module name="calGOut" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -414,8 +397,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.google_calendar_API_v3" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gcalcli" />
+        <item index="0" class="java.lang.String" itemvalue="Python.gcalcli" />
+        <item index="1" class="java.lang.String" itemvalue="Python.google_calendar_API_v3" />
         <item index="2" class="java.lang.String" itemvalue="Python.getCal" />
         <item index="3" class="java.lang.String" itemvalue="Python.google_calendar_fetcher" />
         <item index="4" class="java.lang.String" itemvalue="Python.enter5" />
@@ -430,79 +413,54 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="2b9180b7-ab7c-4c34-ac77-952b40db4538" name="Default" comment="" />
       <created>1408077780690</created>
-      <option name="number" value="Default" />
       <updated>1408077780690</updated>
     </task>
     <task id="LOCAL-00001" summary="Some data entry attempts in files named enter#.py.">
       <created>1408110183192</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
       <updated>1408110183192</updated>
     </task>
     <task id="LOCAL-00002" summary="Getting more data from tk.">
       <created>1408638854560</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
       <updated>1408638854560</updated>
     </task>
     <task id="LOCAL-00003" summary="Account, password, start and end dates coming in from tkinter.">
       <created>1408647026903</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
       <updated>1408647026903</updated>
     </task>
     <task id="LOCAL-00004" summary="Added destination_file.">
       <created>1408647996593</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
       <updated>1408647996593</updated>
     </task>
     <task id="LOCAL-00005" summary="Detour into Google Calendar API. I think I'll let Mr. Luter handle that.">
       <created>1408800538668</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
       <updated>1408800538668</updated>
     </task>
     <task id="LOCAL-00006" summary="Using Python3 and supports for Python3">
       <created>1409608243941</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
       <updated>1409608243941</updated>
     </task>
     <task id="LOCAL-00007" summary="in sync">
       <created>1409690067981</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
       <updated>1409690067981</updated>
     </task>
     <task id="LOCAL-00008" summary="Gets all DaleEMoore events for previous week.">
       <created>1409786621124</created>
-      <option name="number" value="00008" />
-      <option name="project" value="LOCAL" />
       <updated>1409786621124</updated>
     </task>
     <task id="LOCAL-00009" summary="Getting date ranged search string.">
       <created>1410128503347</created>
-      <option name="number" value="00009" />
-      <option name="project" value="LOCAL" />
       <updated>1410128503347</updated>
     </task>
     <task id="LOCAL-00010" summary="in sync">
       <created>1416925669270</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
       <updated>1416925669270</updated>
     </task>
     <task id="LOCAL-00011" summary="in sync">
       <created>1416926380350</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
       <updated>1416926380350</updated>
     </task>
     <task id="LOCAL-00012" summary="in sync">
       <created>1416932639407</created>
-      <option name="number" value="00012" />
-      <option name="project" value="LOCAL" />
       <updated>1416932639407</updated>
     </task>
     <option name="localTasksCounter" value="13" />
@@ -529,29 +487,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="328" y="121" width="1150" height="836" extended-state="0" />
+    <frame x="680" y="292" width="1230" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40668523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278272" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909784" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20088889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20066611" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40523884" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258786" sideWeight="0.50041634" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258786" sideWeight="0.4995837" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278272" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -604,9 +562,32 @@
       </breakpoints-dialog>
       <option name="time" value="23" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="340">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcalcli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5491" max-vertical-offset="38471">
+          <caret line="323" column="8" selection-start-line="323" selection-start-column="8" selection-end-line="323" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/google_calendar_API_v3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1666">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docs_example.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="5475">
@@ -913,13 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/lib-tk/Tkinter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -931,13 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1704313" vertical-offset="0" max-vertical-offset="5475">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.3/dist-packages/dateutil/relativedelta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.968" vertical-offset="4574" max-vertical-offset="6585">
-          <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -964,22 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/gflags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="21163" max-vertical-offset="42930">
-          <caret line="1427" column="6" selection-start-line="1427" selection-start-column="6" selection-end-line="1427" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/infoCalGOut.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="2115">
@@ -988,23 +939,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gcalcli.py">
+    <entry file="file://$PROJECT_DIR$/google_calendar_API_v3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.296296" vertical-offset="4702" max-vertical-offset="33945">
-          <caret line="323" column="8" selection-start-line="323" selection-start-column="8" selection-end-line="323" selection-end-column="8" />
-          <folding>
-            <element signature="e#9063#9104#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="1564">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/google_calendar_API_v3.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="812" max-vertical-offset="1380">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcalcli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6010101" vertical-offset="5423" max-vertical-offset="38403">
+          <caret line="337" column="52" selection-start-line="337" selection-start-column="52" selection-end-line="337" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
 </project>
+
