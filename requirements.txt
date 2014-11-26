@@ -10,5 +10,20 @@ google-api-python-client
 #pip install --upgrade google-api-python-client
 httplib2
 parse
-# pip install Tkinter
-#Tkinter
+
+# apt-get install python-tk python3-tk
+
+# dalem@Bubbles4:~$ pip install tkinter
+# Downloading/unpacking tkinter
+#   Could not find any downloads that satisfy the requirement tkinter
+# Cleaning up...
+# No distributions at all found for tkinter
+# Storing debug log for failure in /tmp/tmp14jNmS
+
+# dalem@Bubbles4:~$ pip install Tkinter
+# Downloading/unpacking Tkinter
+#   Could not find any downloads that satisfy the requirement Tkinter
+# Cleaning up...
+# No distributions at all found for Tkinter
+# Storing debug log for failure in /tmp/tmprspa3G
+
