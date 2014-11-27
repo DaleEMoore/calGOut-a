@@ -10,11 +10,20 @@ import datetime
 #import gdata
 import google_calendar_fetcher
 import sys, traceback
-from tkinter import * # Python3
-#from Tkinter import * # Python2
+#from tkinter import * # Python3
+from Tkinter import * # Python2
 
 __author__ = 'DaleEMoore@gMail.Com'
-
+try:
+    # Python 3
+    from urllib.parse import urlparse, urlencode
+    import urllib.request as urllib_compat
+except (ImportError) as e:
+    print(e.message)
+    # Python 2
+    from urlparse import urlparse
+    from urllib import urlencode
+    import urllib2 as urllib_compat
 
 def update_status(entries, status_description):
     entries['Status'].delete(0,END)
