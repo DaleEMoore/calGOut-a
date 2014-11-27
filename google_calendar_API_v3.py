@@ -78,6 +78,10 @@ while True:
     _IterateEvents
     _PrintEvent
     """
+    print("test")
+    import gcalcli
+    gcalcli.AgendaQuery("11/1/2014", "11/31/2014")
+    print("end test")
 
 
   page_token = calendar_list.get('nextPageToken')
