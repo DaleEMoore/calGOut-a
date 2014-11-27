@@ -1,13 +1,30 @@
 #!/usr/bin/env python3
 """
 From: https://github.com/tpopela/google_calendar_fetcher
+
 For Python3
 
 Gets Google Calendar's account events and prints them to stdout
 """
 
 import getopt
-from urllib.parse import urlencode
+
+
+try:
+    # Python 3
+    from urllib.parse import urlparse, urlencode
+    import urllib.request as urllib_compat
+except (ImportError) as e:
+    #print(e.message)
+    # Python 2
+    from urlparse import urlparse
+    from urllib import urlencode
+    import urllib2 as urllib_compat
+# The following line is Python3.
+# from urllib.parse import urlencode
+
+
+
 import httplib2
 import datetime
 from dateutil.relativedelta import *

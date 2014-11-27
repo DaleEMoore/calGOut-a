@@ -1,3 +1,5 @@
+# C:\Users\dalem\workspace\calGOut>\Python27\Scripts\pip.exe install -r requirements.txt
+
 #python=2 for google-api-python-client
 # I wonder if this is the proper syntax for describing the Python version?
 #python>=3 # Nope, just know that Python3 is required.
@@ -9,6 +11,10 @@ gflags-multibool
 google-api-python-client
 #pip install --upgrade google-api-python-client
 httplib2
+
+# from urllib.parse import urlencode ImportError: No module named parse
+# "pip install"  "from urllib.parse import urlencode"
+
 parse
 
 # apt-get install python-tk python3-tk
