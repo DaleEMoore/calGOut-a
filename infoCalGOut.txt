@@ -133,3 +133,10 @@ Sat Nov 29           Maile Kono-Wells bday
              6:30pm  Steve Aronstein is home from walking the neighbor's dog.
 
 It looks like I've found the google-python-api v3 example I needed.
+
+Thu 27 Nov 2014 10:07 PM CST
+On Bonnie Purser's machine in Austin at Joey's where we've just fixed it not booting.
+    I installed PyCharm and calGOut and in just a few minutes had
+    calGOut running with tkinter and
+    gcalcli running.
+    YEAH!
