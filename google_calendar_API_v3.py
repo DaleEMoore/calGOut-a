@@ -1,4 +1,4 @@
-# TODO; try the new Google calendar API v3 here.
+# try the new Google calendar API v3 here.
 # https://developers.google.com/google-apps/calendar/
 # https://developers.google.com/google-apps/calendar/migration
 # https://developers.google.com/google-apps/calendar/firstapp
@@ -79,8 +79,28 @@ while True:
     _PrintEvent
     """
     print("test")
-    import gcalcli
-    gcalcli.AgendaQuery("11/1/2014", "11/31/2014")
+    print("calendar_list", dir(calendar_list))
+    print("calendar_list_entry", dir(calendar_list_entry))
+    print("calendar_list_entry.items", dir(calendar_list_entry.items))
+    #for clei in calendar_list_entry.items:
+    #  print("clei", dir(clei))
+    print("calendar_list_entry.iteritems", dir(calendar_list_entry.iteritems))
+    #for cleii in calendar_list_entry.iteritems:
+    #  print("cleii", dir(cleii))
+
+
+
+    # The following doesn't work for a variety of reasons surrounding me not knowing how to call it.
+    #import gcalcli
+    #import sys
+    #sys.argv = [sys.argv[0], 'agenda', "11/1/2014", "11/31/2014"]
+    #gc = gcalcli.BowChickaWowWow()                              # Error: no command
+    #print(dir(gc))
+    #gc.AgendaQuery(gc,"11/1/2014", "11/31/2014")
+    ##gc.AgendaQuery(gc,"11/1/2014", "11/31/2014")               # TypeError: unbound method AgendaQuery() must be called with gcalcli instance as first argument (got classobj instance instead)
+    ##gc.AgendaQuery(gcalcli,"11/1/2014", "11/31/2014")          # TypeError: unbound method AgendaQuery() must be called with gcalcli instance as first argument (got module instance instead)
+    ##gc.AgendaQuery(gcalcli.gcalcli,"11/1/2014", "11/31/2014")  # TypeError: unbound method AgendaQuery() must be called with gcalcli instance as first argument (got classobj instance instead)
+    ##gc.AgendaQuery("11/1/2014", "11/31/2014")                  # TypeError: unbound method AgendaQuery() must be called with gcalcli instance as first argument (got str instance instead)
     print("end test")
 
 

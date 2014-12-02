@@ -9,49 +9,12 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
-/usr/bin/python2.7 /home/dalem/PycharmProjects/calGOut/gcalcli.py agenda 11/22/14 11/26/14
-    Gives me lots of what I want.
-    What if I want to run against a different Google account?
-    Can gcalcli.py do everything I need?
-    Evaluate gcalcli.py's gflags usage for options that give me what I want.
-
-    gcalcli.py agenda 11/22/14 11/26/14
-    gcalcli.py search "bill" agenda 11/22/14 11/26/14
-    invalid search string.
-    gcalcli.py search "bill"
-    case insensitive
-    remove special formatting, make CSV or TSV?
-        [0m[0;33m
-        2000-05-20[0m[0;36m   7:00pm  Playful Ritual
-    remove multiple instances of the same event output.
-
-    --nocolor
-    --detail_all
-
-    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py search "bill" --nocolor --detail_all > t1.txt
-    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py search "bill" --nocolor > t1.txt
-    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda 11/12/14 11/26/14 | grep -i bill
-    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda 11/12/14 11/26/14 --details all | less
-    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda 11/12/14 11/26/14 --details calendar --details length --nocolor | less
-    not on a single line, hard to parse and import.
-
-
 setup.py might be needed to install all the requirements in the VirtualEnvironment.
     If not dateutil.tz then run setup.py to get everything?
     sudo pip install python-dateutil --upgrade
     sudo pip install pytz --upgrade
 
-https://developers.google.com/google-apps/calendar/v1/developers_guide_dotnet
-    This API is a subject to the Deprecation Policy and will be shutdown on November 17, 2014. Please use APIv3 instead.
-    https://developers.google.com/google-apps/calendar/
-    Google Calendar API v3
-    https://developers.google.com/google-apps/calendar/v3/reference/calendars/get
-    Python Client Library
-    https://code.google.com/p/google-api-python-client/
-    https://developers.google.com/google-apps/calendar/migration
 
-    https://developers.google.com/google-apps/calendar/setup
-    https://developers.google.com/google-apps/calendar/instantiate
 
 Logs
 Thursday 14 August 2014 11:44 PM CST
@@ -140,3 +103,47 @@ On Bonnie Purser's machine in Austin at Joey's where we've just fixed it not boo
     calGOut running with tkinter and
     gcalcli running.
     YEAH!
+
+
+Mon 1 Dec 2014 4:20 PM CST
+/usr/bin/python2.7 /home/dalem/PycharmProjects/calGOut/gcalcli.py agenda 11/22/14 11/26/14
+    Gives me lots of what I want.
+    What if I want to run against a different Google account?
+    Can gcalcli.py do everything I need?
+    Evaluate gcalcli.py's gflags usage for options that give me what I want.
+
+    gcalcli.py agenda 11/22/14 11/26/14
+    gcalcli.py search "bill" agenda 11/22/14 11/26/14
+    invalid search string.
+    gcalcli.py search "bill"
+    case insensitive
+    remove special formatting, make CSV or TSV?
+        [0m[0;33m
+        2000-05-20[0m[0;36m   7:00pm  Playful Ritual
+    remove multiple instances of the same event output.
+
+    --nocolor
+    --detail_all
+
+    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py search "bill" --nocolor --detail_all > t1.txt
+    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py search "bill" --nocolor > t1.txt
+    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda 11/12/14 11/26/14 | grep -i bill
+    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda 11/12/14 11/26/14 --details all | less
+    dalem@QnD:~/PycharmProjects/calGOut⟫ python ./gcalcli.py agenda 11/12/14 11/26/14 --details calendar --details length --nocolor | less
+    not on a single line, hard to parse and import.
+
+/usr/bin/python2.7 /home/dalem/PycharmProjects/calGOut/gcalcli.py csv 11/22/14 11/26/14
+    Make it output what I want when I want it.
+
+
+https://developers.google.com/google-apps/calendar/v1/developers_guide_dotnet
+    This API is a subject to the Deprecation Policy and will be shutdown on November 17, 2014. Please use APIv3 instead.
+    https://developers.google.com/google-apps/calendar/
+    Google Calendar API v3
+    https://developers.google.com/google-apps/calendar/v3/reference/calendars/get
+    Python Client Library
+    https://code.google.com/p/google-api-python-client/
+    https://developers.google.com/google-apps/calendar/migration
+
+    https://developers.google.com/google-apps/calendar/setup
+    https://developers.google.com/google-apps/calendar/instantiate
