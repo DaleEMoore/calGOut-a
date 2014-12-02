@@ -1296,7 +1296,8 @@ class gcalcli:
         # TODO; fill in Calendar, Date, Time, Duration, Description
         #print(dir(event))
         #Calendar = event.gcalcli_cal['summary']
-        PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']))
+        sys.stdout.write ('Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+        #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']))
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
         ds1 = event['start'].itervalues().next()
         de1 = event['end'].itervalues().next()
@@ -1313,7 +1314,8 @@ class gcalcli:
         Time = ds.time()
         Duration = de - ds
         Description = event['summary']
-        PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
+        sys.stdout.write (Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+        #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
         #print Calendar, Date, Time, Duration, Description
 
 
