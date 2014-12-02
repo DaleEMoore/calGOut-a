@@ -1296,11 +1296,21 @@ class gcalcli:
         # TODO; fill in Calendar, Date, Time, Duration, Description
         #print(dir(event))
         #Calendar = event.gcalcli_cal['summary']
-        Date = event['start']
-        Time = event['start']   # TODO; what is the start time?
-        ds = datetime.strptime(event['start'].itervalues().next(),'%Y-%m-%d')
-        de = datetime.strptime(event['end'].itervalues().next(),'%Y-%m-%d')
+        PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']))
+        #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
+        ds1 = event['start'].itervalues().next()
+        de1 = event['end'].itervalues().next()
+        try:
+            ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S-%f')
+        except:
+            ds = datetime.strptime(ds1,'%Y-%m-%d')
+        try:
+            de = datetime.strptime(de1,'%Y-%m-%dT%H:%M:%S-%f')
+        except:
+            de = datetime.strptime(de1,'%Y-%m-%d')
         #de = datetime.strptime(event['end'].itervalues().next(),'%Y-%m-%dT%H:%M:%S.%fZ')
+        Date = ds.date()
+        Time = ds.time()
         Duration = de - ds
         Description = event['summary']
         PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
