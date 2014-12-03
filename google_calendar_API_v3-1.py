@@ -1159,6 +1159,11 @@ class gcalcli:
 
 
     def csvPrintEvent(self, event, prefix):
+        global oCalendar #= 'Calendar'
+        global oDate #= '1/1/1001'
+        global oTime #= '1:1:1'
+        global oDuration #= 1
+        global oDescription #= 'Description'
 
         # TODO; build up fields for at-end output:                      Calendar, Date, Time, Duration, Description
 
