@@ -1,12 +1,35 @@
-# Traceback (most recent call last):
-#  File "/home/guest1/PycharmProjects/calGOut/main.py", line 11, in <module>
-#    import google_calendar_fetcher
-#  File "/home/guest1/PycharmProjects/calGOut/google_calendar_fetcher.py", line 10, in <module>
-#    from urllib.parse import urlencode
-#ImportError: No module named parse
-# Had to File, Settings, Project Interpreter, create VirtualEnvironmentOne, install parse.
-parse
+# C:\Users\dalem\workspace\calGOut>\Python27\Scripts\pip.exe install -r requirements.txt
+
+#python=2 for google-api-python-client
+# I wonder if this is the proper syntax for describing the Python version?
+#python>=3 # Nope, just know that Python3 is required.
+# But google-api-python-client v3 seems to require Python2!
+dateutils
+python-dateutil # required by gcalcli.py
+pytz # required by gcalcli.py
+gflags-multibool
+google-api-python-client
+#pip install --upgrade google-api-python-client
 httplib2
-dateutil
-tkinter
-python3
+
+# from urllib.parse import urlencode ImportError: No module named parse
+# "pip install"  "from urllib.parse import urlencode"
+
+parse
+
+# apt-get install python-tk python3-tk
+
+# dalem@Bubbles4:~$ pip install tkinter
+# Downloading/unpacking tkinter
+#   Could not find any downloads that satisfy the requirement tkinter
+# Cleaning up...
+# No distributions at all found for tkinter
+# Storing debug log for failure in /tmp/tmp14jNmS
+
+# dalem@Bubbles4:~$ pip install Tkinter
+# Downloading/unpacking Tkinter
+#   Could not find any downloads that satisfy the requirement Tkinter
+# Cleaning up...
+# No distributions at all found for Tkinter
+# Storing debug log for failure in /tmp/tmprspa3G
+

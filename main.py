@@ -10,11 +10,20 @@ import datetime
 #import gdata
 import google_calendar_fetcher
 import sys, traceback
-from tkinter import * # Python3
-#from Tkinter import * # Python2
+#from tkinter import * # Python3
+from Tkinter import * # Python2
 
 __author__ = 'DaleEMoore@gMail.Com'
-
+try:
+    # Python 3
+    from urllib.parse import urlparse, urlencode
+    import urllib.request as urllib_compat
+except (ImportError) as e:
+    print(e.message)
+    # Python 2
+    from urlparse import urlparse
+    from urllib import urlencode
+    import urllib2 as urllib_compat
 
 def update_status(entries, status_description):
     entries['Status'].delete(0,END)
@@ -53,6 +62,8 @@ def PrintUserCalendars(calendar_client):
 
 def get_events(entries):
     update_status(ents, "Processing...")
+    # TODO; status isn't updated until this is done, this should be multiprocessing?
+    # Like: http://stackoverflow.com/questions/16699682/python-tkinter-status-bar-not-updating-correctly
     try:
         # get values from user
         account = entries['Google Account'].get()
@@ -62,7 +73,9 @@ def get_events(entries):
         start_date = datetime.datetime.strptime(d1, '%Y-%m-%d')
         #start_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         d1 = entries['End Date'].get()
-        end_date = datetime.datetime.strptime(d1, '%Y-%m-%d')
+        # change end_date to day+1 or time to 23:59:59
+        end_date = datetime.datetime.strptime(d1, '%Y-%m-%d')+datetime.timedelta(days=1)
+        #end_date = datetime.datetime.strptime(d1+datetime.timedelta(days=1), '%Y-%m-%d')
         #end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         search_string = entries['Search String'].get()
         destination_file = entries['Destination File'].get()
