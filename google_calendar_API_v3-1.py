@@ -1299,8 +1299,16 @@ class gcalcli:
         sys.stdout.write ('Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']))
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
-        ds1 = event['start'].itervalues().next()
-        de1 = event['end'].itervalues().next()
+        try:
+            ds1 = event['start']['dateTime']
+        except:
+            ds1 = event['start']['date']
+        #ds1 = event['start'].itervalues().next()
+        try:
+            de1 = event['end']['dateTime']
+        except:
+            de1 = event['end']['date']
+        #de1 = event['end'].itervalues().next()
         from dateutil.parser import parse
         # TODO; get around %z not working in strptime
         # per http://stackoverflow.com/questions/2609259/converting-string-to-datetime-object-in-python
