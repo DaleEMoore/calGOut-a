@@ -1301,6 +1301,8 @@ class gcalcli:
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
         ds1 = event['start'].itervalues().next()
         de1 = event['end'].itervalues().next()
+        # TODO; get around %z not working in strptime
+        # per http://stackoverflow.com/questions/2609259/converting-string-to-datetime-object-in-python
         try:
             ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S-%f')
         except:
