@@ -1301,12 +1301,13 @@ class gcalcli:
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
         ds1 = event['start'].itervalues().next()
         de1 = event['end'].itervalues().next()
+        # TODO http://bugs.python.org/issue6641
         try:
-            ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S-%f')
+            ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S%z')
         except:
             ds = datetime.strptime(ds1,'%Y-%m-%d')
         try:
-            de = datetime.strptime(de1,'%Y-%m-%dT%H:%M:%S-%f')
+            de = datetime.strptime(de1,'%Y-%m-%dT%H:%M:%S%z')
         except:
             de = datetime.strptime(de1,'%Y-%m-%d')
         #de = datetime.strptime(event['end'].itervalues().next(),'%Y-%m-%dT%H:%M:%S.%fZ')
