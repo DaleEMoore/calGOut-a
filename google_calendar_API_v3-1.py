@@ -1207,7 +1207,7 @@ class gcalcli:
         if not prefix:
             prefix = indent
 
-        PrintMsg(self.dateColor, prefix)
+        #PrintMsg(self.dateColor, prefix)
         if event['s'].hour == 0 and event['s'].minute == 0 and \
            event['e'].hour == 0 and event['e'].minute == 0:
             fmt = '  ' + timeFormat + '  %s\n'
@@ -1300,9 +1300,8 @@ class gcalcli:
         # TODO; fill in oCalendar, oDate, oTime, oDuration, oDescription
         #print(dir(event))
         #Calendar = event.gcalcli_cal['summary']
-        # TODO; How do I set global fields like oCalendar?
         # UnboundLocalError: local variable 'oCalendar' referenced before assignment
-        sys.stdout.write ('Debugging,' + oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+        #sys.stdout.write ('Debugging,' + oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']))
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
         try:
@@ -1316,27 +1315,20 @@ class gcalcli:
             de1 = event['end']['date']
         #de1 = event['end'].itervalues().next()
         from dateutil.parser import parse
-        # TODO; get around %z not working in strptime
+        # get around %z not working in strptime
         # per http://stackoverflow.com/questions/2609259/converting-string-to-datetime-object-in-python
         ds = parse(ds1)
-        #try:
-        #    #ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S%z')
-        #except:
-        #    ds = datetime.strptime(ds1,'%Y-%m-%d')
         de = parse(de1)
-        #try:
-        #    de = datetime.strptime(de1,'%Y-%m-%dT%H:%M:%S%z')
-        #except:
-        #    de = datetime.strptime(de1,'%Y-%m-%d')
-        #de = datetime.strptime(event['end'].itervalues().next(),'%Y-%m-%dT%H:%M:%S.%fZ')
-        Date = ds.date()
-        Time = ds.time()
-        Duration = de - ds
-        Description = event['summary']
         # TODO; is event['creator']['displayName'] == name of calendar?
         # Or use ListAllCalendars()? to get calendars' name.
+        # TODO; fill in oCalendar, oDate, oTime, oDuration, oDescription
         oCalendar = event['creator']['displayName']
-        sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+        oDate = ds.date()
+        oTime = ds.time()
+        oDuration = de - ds
+        oDescription = event['summary']
+        sys.stdout.write (oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
+        #sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
         #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
         #print oCalendar, oDate, oTime, oDuration, oDescription
 
