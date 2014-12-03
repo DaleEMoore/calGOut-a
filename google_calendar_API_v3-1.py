@@ -1304,11 +1304,11 @@ class gcalcli:
         # TODO; get around %z not working in strptime
         # per http://stackoverflow.com/questions/2609259/converting-string-to-datetime-object-in-python
         try:
-            ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S-%f')
+            ds = datetime.strptime(ds1,'%Y-%m-%dT%H:%M:%S%z')
         except:
             ds = datetime.strptime(ds1,'%Y-%m-%d')
         try:
-            de = datetime.strptime(de1,'%Y-%m-%dT%H:%M:%S-%f')
+            de = datetime.strptime(de1,'%Y-%m-%dT%H:%M:%S%z')
         except:
             de = datetime.strptime(de1,'%Y-%m-%d')
         #de = datetime.strptime(event['end'].itervalues().next(),'%Y-%m-%dT%H:%M:%S.%fZ')
