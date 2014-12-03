@@ -223,11 +223,11 @@ def Usage(expanded=False):
     sys.exit(1)
 
 # TODO; build up fields for at-end output:
-Calendar = 'Calendar'
-Date = '1/1/1001'
-Time = '1:1:1'
-Duration = 1
-Description = 'Description'
+oCalendar = 'Calendar'
+oDate = '1/1/1001'
+oTime = '1:1:1'
+oDuration = 1
+oDescription = 'Description'
 
 class CLR:
 
@@ -1206,31 +1206,30 @@ class gcalcli:
         if event['s'].hour == 0 and event['s'].minute == 0 and \
            event['e'].hour == 0 and event['e'].minute == 0:
             fmt = '  ' + timeFormat + '  %s\n'
-            PrintMsg(self._CalendarColor(event['gcalcli_cal']), fmt %
-                     ('', self._ValidTitle(event).strip()))
+            #PrintMsg(self._CalendarColor(event['gcalcli_cal']), fmt % ('', self._ValidTitle(event).strip()))
         else:
             fmt = '  ' + timeFormat + '  %s\n'
 #            if 'summary' not in event:
 #                dprint(event)
-            PrintMsg(self._CalendarColor(event['gcalcli_cal']), fmt %
-                     (tmpTimeStr, self._ValidTitle(event).strip()))
+            #PrintMsg(self._CalendarColor(event['gcalcli_cal']), fmt % (tmpTimeStr, self._ValidTitle(event).strip()))
 
         if self.detailCalendar:
+            oCalendar = event['gcalcli_cal']['summary']
             xstr = "%s  Calendar: %s\n" % (
                 detailsIndent,
                 event['gcalcli_cal']['summary']
             )
-            PrintMsg(CLR_NRM(), xstr)
+            #PrintMsg(CLR_NRM(), xstr)
 
         if self.detailUrl and 'htmlLink' in event:
             hLink = self._ShortenURL(event['htmlLink'])
             xstr = "%s  Link: %s\n" % (detailsIndent, hLink)
-            PrintMsg(CLR_NRM(), xstr)
+            #PrintMsg(CLR_NRM(), xstr)
 
         if self.detailUrl and 'hangoutLink' in event:
             hLink = self._ShortenURL(event['hangoutLink'])
             xstr = "%s  Hangout Link: %s\n" % (detailsIndent, hLink)
-            PrintMsg(CLR_NRM(), xstr)
+            #PrintMsg(CLR_NRM(), xstr)
 
         if self.detailLocation and \
            'location' in event and \
@@ -1239,22 +1238,22 @@ class gcalcli:
                 detailsIndent,
                 event['location'].strip()
             )
-            PrintMsg(CLR_NRM(), xstr)
+            #PrintMsg(CLR_NRM(), xstr)
 
         if self.detailLength:
             diffDateTime = (event['e'] - event['s'])
             xstr = "%s  Length: %s\n" % (detailsIndent, diffDateTime)
-            PrintMsg(CLR_NRM(), xstr)
+            #PrintMsg(CLR_NRM(), xstr)
 
         if self.detailReminders and 'reminders' in event:
             if event['reminders']['useDefault'] == True:
                 xstr = "%s  Reminder: (default)\n" % (detailsIndent)
-                PrintMsg(CLR_NRM(), xstr)
+                #PrintMsg(CLR_NRM(), xstr)
             elif 'overrides' in event['reminders']:
                 for rem in event['reminders']['overrides']:
                     xstr = "%s  Reminder: %s %d minutes\n" % \
                            (detailsIndent, rem['method'], rem['minutes'])
-                    PrintMsg(CLR_NRM(), xstr)
+                    #PrintMsg(CLR_NRM(), xstr)
 
         if self.detailDescr and \
            'description' in event and \
@@ -1291,12 +1290,14 @@ class gcalcli:
                                  descrIndent, box),
                     marker
                 )
-            PrintMsg(CLR_NRM(), xstr)
+            #PrintMsg(CLR_NRM(), xstr)
 
-        # TODO; fill in Calendar, Date, Time, Duration, Description
+        # TODO; fill in oCalendar, oDate, oTime, oDuration, oDescription
         #print(dir(event))
         #Calendar = event.gcalcli_cal['summary']
-        sys.stdout.write ('Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+        # TODO; How do I set global fields like oCalendar?
+        # UnboundLocalError: local variable 'oCalendar' referenced before assignment
+        sys.stdout.write ('Debugging,' + oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']))
         #PrintMsg(CLR_BLK(), 'Debugging,' + Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + "," + Description)
         try:
@@ -1327,9 +1328,12 @@ class gcalcli:
         Time = ds.time()
         Duration = de - ds
         Description = event['summary']
-        sys.stdout.write (Calendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+        # TODO; is event['creator']['displayName'] == name of calendar?
+        # Or use ListAllCalendars()? to get calendars' name.
+        oCalendar = event['creator']['displayName']
+        sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
         #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
-        #print Calendar, Date, Time, Duration, Description
+        #print oCalendar, oDate, oTime, oDuration, oDescription
 
 
 
@@ -2456,7 +2460,7 @@ if __name__ == '__main__':
     dE = date.today() - timedelta(days=1)
     dS = dE - timedelta(days=6)
     sys.argv = [sys.argv[0], 'csv', str(dS), str(dE)] # Force csv output.
-    # TODO; Check date ranges; '2014-11-24', '2014-11-30' got 22nd through 29th
+    # Check date ranges; '2014-11-24', '2014-11-30' got 22nd through 29th
     print (sys.argv[0], 'csv', str(dS), str(dE)) # Force csv output.
     CLR.useColor = False # Don't output any colors.
     BowChickaWowWow()
