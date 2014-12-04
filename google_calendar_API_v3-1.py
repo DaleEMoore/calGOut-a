@@ -1344,17 +1344,18 @@ class gcalcli:
             # can't compare offset-naive and offset-aware datetimes
             # And once I fix the offset-naive versus offset-aware datetimes comparison...
             # What's the math for events that pass through my start_date and end_date?
-            if start_date.replace(tzinfo=None) <= ds.replace(tzinfo=None) <= end_date.replace(tzinfo=None):
+            # start date is set when we query Google Calendar for the events.
+            #if start_date.replace(tzinfo=None) <= ds.replace(tzinfo=None) <= end_date.replace(tzinfo=None):
                     #or start_date <= de <= end_date
                     #or ds <= start_date <= de
                     # ds <= end_date <= de
-                sys.stdout.write (oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
-                fOut = open(destination_file, 'a')
-                fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
-                fOut.close()
-                #sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
-                #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
-                #print oCalendar, oDate, oTime, oDuration, oDescription
+            sys.stdout.write (oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
+            fOut = open(destination_file, 'a')
+            fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
+            fOut.close()
+            #sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
+            #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
+            #print oCalendar, oDate, oTime, oDuration, oDescription
 
 
 
@@ -2670,6 +2671,6 @@ if __name__ == '__main__':
 
     ents['Google Account Password'].focus()
 
-    root.mainloop()
+    root.mainloop() # get_events() called when button pushed
 
     #BowChickaWowWow()
