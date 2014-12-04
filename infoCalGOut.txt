@@ -9,10 +9,8 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
-setup.py might be needed to install all the requirements in the VirtualEnvironment.
-    If not dateutil.tz then run setup.py to get everything?
-    sudo pip install python-dateutil --upgrade
-    sudo pip install pytz --upgrade
+Shifting from command-line date strings to calculated last-2-weeks date strings is failing.
+    Figure out how to get last-2-weeks into command-line acceptible format.
 
 
 
@@ -147,3 +145,12 @@ https://developers.google.com/google-apps/calendar/v1/developers_guide_dotnet
 
     https://developers.google.com/google-apps/calendar/setup
     https://developers.google.com/google-apps/calendar/instantiate
+
+
+Thu 4 Dec 2014 9:06 AM CST
+setup.py might be needed to install all the requirements in the VirtualEnvironment.
+    If not dateutil.tz then run setup.py to get everything?
+    sudo pip install python-dateutil --upgrade
+    sudo pip install pytz --upgrade
+
+    requirements.txt contains everything I need for PyCharm to install.

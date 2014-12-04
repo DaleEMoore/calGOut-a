@@ -1666,8 +1666,10 @@ class gcalcli:
                                          microsecond=0)
         else:
             try:
+                from dateutil.parser import parse
+                #start = parse(startText) # AttributeError datetime.datetime object has no attribute 'read'
+                start = self.dateParser.fromString(startText, not self.ignoreStarted) # ValueError Date and time is invalid
                 #start = startText # Bad Request
-                start = self.dateParser.fromString(startText, not self.ignoreStarted)
             except:
                 PrintErrMsg('Error: failed to parse start time\n')
                 return
@@ -2357,8 +2359,8 @@ def BowChickaWowWow():
     elif args[0] == 'csv':
         if len(args) == 3: # start and end
             # TODO; get the end_date from tkinter
-            #gcal.AgendaQuery(startText=start_date, endText=end_date)
-            gcal.AgendaQuery(startText=args[1], endText=args[2])
+            gcal.AgendaQuery(startText=start_date, endText=end_date)
+            #gcal.AgendaQuery(startText=args[1], endText=args[2])
         else:
             PrintErrMsg('Error: invalid csv arguments\n')
             sys.exit(1)
