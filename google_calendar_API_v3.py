@@ -59,7 +59,7 @@ http = credentials.authorize(http)
 # https://code.google.com/apis/console/?noredirect#project:763456021694:overview
 # https://code.google.com/apis/console/?noredirect#project:763456021694:access
 service = build(serviceName='calendar', version='v3', http=http,
-       developerKey='YOUR_DEVELOPER_KEY') # TODO; I have no idea what my developer key is.
+       developerKey='YOUR_DEVELOPER_KEY') # I have no idea what my developer key is; and, it seems unnecessary.
        #  or where to find it.
 
 # From https://developers.google.com/google-apps/calendar/v3/reference/calendarList/list
@@ -68,7 +68,7 @@ while True:
   calendar_list = service.calendarList().list(pageToken=page_token).execute()
   for calendar_list_entry in calendar_list['items']:
     print "Calendar: " + calendar_list_entry['summary']
-    # TODO; get all calendars all events.
+    # get all calendars all events. Take a look at google_calendar_API_v3-1.py for how this is handled.
     # https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
     """
     from gcalcli.py

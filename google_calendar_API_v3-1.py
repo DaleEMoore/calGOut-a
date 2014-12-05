@@ -225,6 +225,8 @@ def Usage(expanded=False):
     sys.exit(1)
 
 # build up fields for at-end output:
+# build up fields for entry by operator:
+# pull tkinter from main.py then pass those fields into controlling this CSV execution.
 oCalendar = 'Calendar'
 oDate = '1/1/1001'
 oTime = '1:1:1'
@@ -234,8 +236,6 @@ start_date = '1/1/1001'
 end_date = '1/1/1001'
 search_string = u'bill'
 destination_file = "t1.csv"
-# TODO; build up fields for entry by operator:
-# TODO; pull tkinter from main.py then pass those fields into controlling this CSV execution.
 
 class CLR:
 
@@ -1340,7 +1340,7 @@ class gcalcli:
         oDescription = event['summary']
         # does oDescription contain search_string?
         if search_string.upper() in oDescription.upper():
-            # TODO; does this event exist in the start_date and end_date range?
+            # does this event exist in the start_date and end_date range?
             # can't compare offset-naive and offset-aware datetimes
             # And once I fix the offset-naive versus offset-aware datetimes comparison...
             # What's the math for events that pass through my start_date and end_date?
@@ -1349,9 +1349,11 @@ class gcalcli:
                     #or start_date <= de <= end_date
                     #or ds <= start_date <= de
                     # ds <= end_date <= de
-            sys.stdout.write (oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
+            # TODO; CSV has strings quoted
+            sys.stdout.write ('"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n')
             fOut = open(destination_file, 'a')
-            fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
+            fOut.write('"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n')
+            #fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
             fOut.close()
             #sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
             #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
@@ -1655,6 +1657,8 @@ class gcalcli:
 
 
     def AgendaQuery(self, startText='', endText=''):
+        global destination_file
+        os.remove(destination_file)
         if startText == '':
             if self.ignoreStarted:
                 start = self.now
@@ -2341,12 +2345,12 @@ def BowChickaWowWow():
 
     elif args[0] == 'agenda':
         if len(args) == 3: # start and end
-            # TODO; get the start_date from tkinter
-            gcal.AgendaQuery(startText=start_date, endText=end_date)
-            gcal.AgendaQuery(startText=args[1], endText=args[2])
+            # get the start_date from tkinter
+            gcal.AgendaQuery(startText=str(start_date), endText=str(end_date))
+            #gcal.AgendaQuery(startText=args[1], endText=args[2])
         elif len(args) == 2: # start
-            #gcal.AgendaQuery(startText=start_date)
-            gcal.AgendaQuery(startText=args[1])
+            gcal.AgendaQuery(startText=str(start_date))
+            #gcal.AgendaQuery(startText=args[1])
         elif len(args) == 1: # defaults
             gcal.AgendaQuery()
         else:
@@ -2632,7 +2636,8 @@ if __name__ == '__main__':
     #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as yyyy-mm-dd!")
-    # TODO; figure out a way to keep the Google account password secret.
+    # figure out a way to keep the Google account password secret.
+    # Not really necessary since browser login authorizes and no passwords needed here.
     s1 = """
           google pycharm security passwords
             python master password database
