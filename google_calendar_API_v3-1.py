@@ -2342,7 +2342,7 @@ def BowChickaWowWow():
     elif args[0] == 'agenda':
         if len(args) == 3: # start and end
             # TODO; get the start_date from tkinter
-            #gcal.AgendaQuery(startText=start_date, endText=end_date)
+            gcal.AgendaQuery(startText=start_date, endText=end_date)
             gcal.AgendaQuery(startText=args[1], endText=args[2])
         elif len(args) == 2: # start
             #gcal.AgendaQuery(startText=start_date)
@@ -2358,8 +2358,8 @@ def BowChickaWowWow():
 
     elif args[0] == 'csv':
         if len(args) == 3: # start and end
-            # TODO; get the end_date from tkinter
-            gcal.AgendaQuery(startText=start_date, endText=end_date)
+            # get the end_date from tkinter
+            gcal.AgendaQuery(startText=str(start_date), endText=str(end_date))
             #gcal.AgendaQuery(startText=args[1], endText=args[2])
         else:
             PrintErrMsg('Error: invalid csv arguments\n')
