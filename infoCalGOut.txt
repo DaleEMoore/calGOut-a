@@ -9,8 +9,8 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
-Shifting from command-line date strings to calculated last-2-weeks date strings is failing.
-    Figure out how to get last-2-weeks into command-line acceptible format.
+Make it prettier.
+Make simple Linux, MAC and Windows installer.
 
 
 
@@ -154,3 +154,10 @@ setup.py might be needed to install all the requirements in the VirtualEnvironme
     sudo pip install pytz --upgrade
 
     requirements.txt contains everything I need for PyCharm to install.
+
+Fri 5 Dec 2014 7:23 AM CST
+Shifting from command-line date strings to calculated last-2-weeks date strings is failing.
+    Figure out how to get last-2-weeks into command-line acceptible format.
+
+Make main.py run it.
+Change tkinter options page to have key fields.

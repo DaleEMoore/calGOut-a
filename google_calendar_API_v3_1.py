@@ -2526,8 +2526,8 @@ def get_events(entries):
     # Like: http://stackoverflow.com/questions/16699682/python-tkinter-status-bar-not-updating-correctly
     try:
         # get values from user
-        account = entries['Google Account'].get()
-        password = entries['Google Account Password'].get()
+        #account = entries['Google Account'].get()
+        #password = entries['Google Account Password'].get()
         #show_password = entries['Show Password'].get()
         d1 = entries['Start Date'].get()
         start_date = datetime.strptime(d1, '%Y-%m-%d')
@@ -2541,7 +2541,8 @@ def get_events(entries):
         #end_date = datetime.datetime.strptime(d1, '%m/%d/%Y')
         search_string = unicode(entries['Search String'].get())
         destination_file = entries['Destination File'].get()
-        print (account, start_date, end_date, search_string, destination_file)
+        print (start_date, end_date, search_string, destination_file)
+        #print (account, start_date, end_date, search_string, destination_file)
         #print (account, password, show_password, start_date, end_date, search_string, destination_file)
 
         BowChickaWowWow()
@@ -2580,14 +2581,14 @@ def makeform(root):
         'End Date',
         'Search String',
         'Destination File',
-        'Google Account',
+        #'Google Account',
     )
     #    'Google Account Password',
     entries = {}
     for field in account_password_dates_fields:
         entries[field] = makeent(root, field)
-    s1 = 'Google Account Password'
-    entries[s1] = makeent(root,s1, showAss=True)
+    #s1 = 'Google Account Password'
+    #entries[s1] = makeent(root,s1, showAss=True)
     return entries
 
 def func(event):
@@ -2598,9 +2599,9 @@ def SIGINT_handler(signum, frame):
     PrintErrMsg('Signal caught, bye!\n')
     sys.exit(1)
 
-signal.signal(signal.SIGINT, SIGINT_handler)
-
-if __name__ == '__main__':
+def main():
+    global root
+    global ents
     # isn't there a more generic way to do this? Then this could be in google_calendar_API-V3.py.
     dE = date.today() - timedelta(days=1)
     dS = dE - timedelta(days=6)
@@ -2613,8 +2614,8 @@ if __name__ == '__main__':
     #       I was not able to get Alt-G or Alt-Q to bind. Something funny is going on.
     #test1=raw_input("gimme something")
     #test2=raw_input("gimme more")
-    root = Tk()
-    ents = makeform(root)
+    #root = Tk()
+    #ents = makeform(root)
     #root.bind('<Return>', (get_events(root)))
     # Catch ENTER from form and don't generate an error.
     root.bind('<Return>', func)
@@ -2650,10 +2651,10 @@ if __name__ == '__main__':
         Something creates a sqlite db and that could be my answer if encrypted.
             Django project.
     """
-    ents['Google Account'].delete(0,END)
-    ents['Google Account'].insert(0, "DaleEMoore")
+    #ents['Google Account'].delete(0,END)
+    #ents['Google Account'].insert(0, "DaleEMoore")
     #ents['Google Account'].insert(0, "MooreWorksService")
-    ents['Google Account Password'].delete(0,END)
+    #ents['Google Account Password'].delete(0,END)
     #ents['Google Account Password'].insert(0,END, "password")
     #ents['Show Password'].delete(0,END)
     #ents['Show Password'].insert(0, "No")
@@ -2675,9 +2676,18 @@ if __name__ == '__main__':
     ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
     ents['Destination File'].insert(0, "t1.csv")
+    ents['Destination File'].focus()
 
-    ents['Google Account Password'].focus()
+    #ents['Google Account Password'].focus()
 
     root.mainloop() # get_events() called when button pushed
 
     #BowChickaWowWow()
+
+root = Tk()
+ents = makeform(root)
+
+signal.signal(signal.SIGINT, SIGINT_handler)
+
+if __name__ == '__main__':
+    main()
