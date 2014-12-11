@@ -9,8 +9,37 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
-Make it prettier.
 Make simple Linux, MAC and Windows installer.
+    https://www.jetbrains.com/pycharm/webhelp/creating-and-running-setup-py.html
+    https://docs.python.org/2/distutils/setupscript.html
+
+    Install Python for your platform.
+    Install setuptools and pip.
+    pip install -e requirements.txt
+    Configure calGOut with shortcut, link, or whatever to run main.py.
+
+    Created TrySetup git branch to try out PyCharm setup and installation.
+    Use pip uninstall to get rid of it?
+    What do I make, an egg? An egg seems to be a binary distribution.
+    What does setup make, an egg?
+
+    Tools, Create setup.py
+    Define license "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)"
+
+    Can install from github? [-e] git+git://git.myproject.org/MyProject#egg=MyProject
+
+    https://pip.pypa.io/en/latest/reference/pip_install.html#pip-install-examples
+
+Create UnitTests
+    Right-click project, create unittests, run unittests, ...
+
+
+
+
+Make it prettier.
+    Startup Icon?
+    tkinter form watermark?
+    Activity progression animations?
 
 
 
