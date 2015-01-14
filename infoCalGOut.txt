@@ -9,6 +9,20 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Make the UI more obvious.
+    Tell me when it's done processing, or launch Excel.
+Preview CSV output in form allowing EXPORT check-box for inclusion.
+Export EXPORT checked items to a QuickBooks formatted file.
+    Like TimerMW1.IIF:
+!TIMERHDR	VER	REL	COMPANYNAME	IMPORTEDBEFORE	FROMTIMER	COMPANYCREATETIME
+TIMERHDR	6	0	Moore Works	N	Y	915135124
+!TIMEACT	DATE	JOB	EMP	ITEM	PITEM	DURATION	PROJ	NOTE	XFERTOPAYROLL	BILLINGSTATUS	GUID
+TIMEACT	12/31/2014	Medical Reimbursement                             	Moore, Dale E                                     	Hrs 125		1		(12/31/2014) 001 PC Michelle power supply repairs                                                                                                                                                                                                              	N	1	203
+TIMEACT	1/1/2015	Berridge Manufacturing Company                    	Moore, Dale E                                     	Hrs 125		6.5		(1/1/2015) 001 TEST site DNS failing on some pages, email MS Exchange research, product-picture-slider training                                                                                                                                                	N	1	204
+TIMEACT	1/2/2015	Berridge Manufacturing Company                    	Moore, Dale E                                     	Hrs 125		1		(1/2/2015) 001 Researching WordPress email to MS Exchange failing                                                                                                                                                                                              	N	1	205
+TIMEACT	1/5/2015	LF Incassable LLC                                 	Moore, Dale E                                     	Hrs 125		2		(1/5/2015) 001 User and company account access, user account RDP setup                                                                                                                                                                                         	N	1	206
+TIMEACT	1/5/2015	Berridge Manufacturing Company                    	Moore, Dale E                                     	Hrs 125		1.5		(1/5/2015) 001 Product-picture-slider research                                                                                                                                                                                                                 	N	1	207
+    Find out NEW QB IIF format and start using that.
 Add column names in CSV output.
 Make it prettier.
 Make simple Linux, MAC and Windows installer.
