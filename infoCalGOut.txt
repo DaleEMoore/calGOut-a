@@ -9,8 +9,16 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Launch it from a Desktop ICON.
+    Python Launcher for Windows (Console) Python Software Foundation.
+    (Instead of python.exe.) It looks like it's launching idea.
+    C:\Users\dalem\PycharmProjects\calGOut\main.py
+    C:\Users\dalem\PycharmProjects\calGOut
+
+
 Make the UI more obvious.
     Tell me when it's done processing, or launch Excel.
+
 Preview CSV output in form allowing EXPORT check-box for inclusion.
 Export EXPORT checked items to a QuickBooks formatted file.
     Like TimerMW1.IIF:
