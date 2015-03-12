@@ -9,6 +9,21 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Export to QuickBooks import, or MS Access import file.
+    I need it in MS Access.
+
+Make Linux .desktop file.
+    calGOut.desktop
+
+    126 dalem@QnD:~/PycharmProjects/calGOut⟫ python main.py
+Traceback (most recent call last):
+  File "main.py", line 14, in <module>
+    from Tkinter import * # Python2
+  File "/home/dalem/.pyenv/versions/2.7.5/lib/python2.7/lib-tk/Tkinter.py", line 39, in <module>
+    import _tkinter # If this fails your Python may not be configured for Tk
+ImportError: No module named _tkinter
+
+
 Make simple Linux, MAC and Windows installer.
     https://www.jetbrains.com/pycharm/webhelp/creating-and-running-setup-py.html
     https://docs.python.org/2/distutils/setupscript.html
