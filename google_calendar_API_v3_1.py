@@ -235,7 +235,7 @@ oDescription = u'Description'
 start_date = '1/1/1001'
 end_date = '1/1/1001'
 search_string = u'bill'
-destination_file = "t1.csv"
+destination_file = "calGOut.csv"
 
 class CLR:
 
@@ -1658,7 +1658,10 @@ class gcalcli:
 
     def AgendaQuery(self, startText='', endText=''):
         global destination_file
-        os.remove(destination_file)
+        try:
+            os.remove(destination_file)
+        except:
+            pass
         if startText == '':
             if self.ignoreStarted:
                 start = self.now
@@ -1686,7 +1689,7 @@ class gcalcli:
                 end = self.dateParser.fromString(endText, not self.ignoreStarted)
             except:
                 PrintErrMsg('Error: failed to parse end time\n')
-                return
+                return['Destination File']
 
         eventList = self._SearchForCalEvents(start, end, None)
 
@@ -2673,9 +2676,9 @@ def main():
     ents['End Date'].insert(0, dE)
     ents['Start Date'].insert(0, dS)
     ents['Search String'].delete(0,END)
-    ents['Search String'].insert(0, "Bill")
+    ents['Search String'].insert(0, "Bill ")
     ents['Destination File'].delete(0,END)
-    ents['Destination File'].insert(0, "t1.csv")
+    ents['Destination File'].insert(0, "calGOut.csv")
     ents['Destination File'].focus()
 
     #ents['Google Account Password'].focus()

@@ -9,6 +9,10 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Make the code self-updating except when (major.minor.miniscule) major or minor? changes.
+
+Save the default values so it's customized to the installed instance.
+
 Launch it from a Desktop ICON.
     Python Launcher for Windows (Console) Python Software Foundation.
     (Instead of python.exe.) It looks like it's launching idea.
@@ -184,3 +188,7 @@ Shifting from command-line date strings to calculated last-2-weeks date strings 
 
 Make main.py run it.
 Change tkinter options page to have key fields.
+
+Wed 3 Jun 2015 9:27 AM CST
+Change the default ['Search String'] from "Bill" to "Bill " so I avoid stuff like "billable" and "billing".
+

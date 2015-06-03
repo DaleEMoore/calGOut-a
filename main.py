@@ -220,9 +220,11 @@ if __name__ == '__main__':
     ents['End Date'].insert(0, dE)
     ents['Start Date'].insert(0, dS)
     ents['Search String'].delete(0,END)
-    ents['Search String'].insert(0, "Bill")
+    ents['Search String'].insert(0, "Bill ")
+    #ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
-    ents['Destination File'].insert(0, "t1.csv")
+    ents['Destination File'].insert(0, "calGOut.csv")
+    #ents['Destination File'].insert(0, "t1.csv")
 
     ents['Google Account Password'].focus()
 
