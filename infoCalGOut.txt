@@ -9,8 +9,13 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Create auto-updater but don't auto-update if change is in major or minor version.
+    major.minor.miniscule version identifier.
+    Auto miniscule incrementor in PyCharm?
+
 Export to QuickBooks import, or MS Access import file.
     I need it in MS Access.
+    In the long run in need it direct to QuickBooks (IIF?)
 
 Make Linux .desktop file.
     calGOut.desktop
