@@ -9,6 +9,8 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+DaleHome.QnD fails to run because of TK installation failure.
+
 Incorporate icon in desktop
 	/usr/share/icons/oxygen/64x64/mimetypes/text-calendar.png
 
