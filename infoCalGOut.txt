@@ -9,6 +9,9 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
+Incorporate icon in desktop
+	/usr/share/icons/oxygen/64x64/mimetypes/text-calendar.png
+
 Create auto-updater but don't auto-update if change is in major or minor version.
     major.minor.miniscule version identifier.
     Auto miniscule incrementor in PyCharm?
