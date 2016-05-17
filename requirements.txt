@@ -1,6 +1,7 @@
 # C:\Users\dalem\workspace\calGOut>\Python27\Scripts\pip.exe install -r requirements.txt
 
 #python=2 # google-api-python-client v3 segoogle-api-python-clientems requires Python2
+#apt-get install python-tk
 dateutils
 python-dateutil # required by gcalcli.py
 pytz # required by gcalcli.py
