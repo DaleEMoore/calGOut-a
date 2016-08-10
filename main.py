@@ -1,19 +1,21 @@
 # main.py
 # Get user input and Google calendar events
 
-# TODO; I didn't get all events when run on 9/17 for 9/10 - 9/16.
+# I didn't get all events when run on 9/17 for 9/10 - 9/16.
 #       missing 2 on 9/12, 9/14, and it looks like Google is missing some.
-# TODO: URGENT, Google's not getting everything?
-# TODO; Only pull from one calendar "Dale Moore"?
+#       Google does miss some, but; calGOut get's 'em all.
+# URGENT, Google's not getting everything?
+# Only pull from one calendar "Dale Moore"?
 
 import datetime
 #import gdata
-import google_calendar_fetcher
-import sys, traceback
+import traceback
 #from tkinter import * # Python3
 from Tkinter import * # Python2
+from old import google_calendar_fetcher
 
 __author__ = 'DaleEMoore@gMail.Com'
+"""
 try:
     # Python 3
     from urllib.parse import urlparse, urlencode
@@ -24,6 +26,7 @@ except (ImportError) as e:
     from urlparse import urlparse
     from urllib import urlencode
     import urllib2 as urllib_compat
+"""
 
 def update_status(entries, status_description):
     entries['Status'].delete(0,END)
@@ -157,6 +160,9 @@ def func(event):
 #    print("You hit Alt-Q.")
 
 if __name__ == '__main__':
+    import google_calendar_API_v3_1
+    google_calendar_API_v3_1.main()
+    """
     # TODO; Is there a button accelerator key for tkinter buttons?
     #       I was not able to get Alt-G or Alt-Q to bind. Something funny is going on.
     #test1=raw_input("gimme something")
@@ -184,19 +190,17 @@ if __name__ == '__main__':
     #root.bind('<Alt-Q>', func2)
     update_status(ents, "Waiting for entry...")
     update_message(ents, "Enter dates as yyyy-mm-dd!")
-    # TODO; figure out a way to keep the Google account password secret.
-    s1 = """
-          google pycharm security passwords
-            python master password database
-                http://stackoverflow.com/questions/12042724/securely-storing-passwords-for-use-in-python-script
-                http://stackoverflow.com/questions/7014953/i-need-to-securely-store-a-username-and-password-in-python-what-are-my-options
-                https://docs.python.org/2/library/getpass.html
-                https://charlesleifer.com/blog/creating-a-personal-password-manager/
-            python Creating a personal password manager
-            PyCharm password database
-        Something creates a sqlite db and that could be my answer if encrypted.
-            Django project.
-    """
+    # figure out a way to keep the Google account password secret. Did that, using Oauth2, browser authorization, no passwords.
+    #      google pycharm security passwords
+    #        python master password database
+    #            http://stackoverflow.com/questions/12042724/securely-storing-passwords-for-use-in-python-script
+    #            http://stackoverflow.com/questions/7014953/i-need-to-securely-store-a-username-and-password-in-python-what-are-my-options
+    #            https://docs.python.org/2/library/getpass.html
+    #            https://charlesleifer.com/blog/creating-a-personal-password-manager/
+    #        python Creating a personal password manager
+    #        PyCharm password database
+    #    Something creates a sqlite db and that could be my answer if encrypted.
+    #        Django project.
     ents['Google Account'].delete(0,END)
     ents['Google Account'].insert(0, "DaleEMoore")
     #ents['Google Account'].insert(0, "MooreWorksService")
@@ -216,10 +220,13 @@ if __name__ == '__main__':
     ents['End Date'].insert(0, dE)
     ents['Start Date'].insert(0, dS)
     ents['Search String'].delete(0,END)
-    ents['Search String'].insert(0, "Bill")
+    ents['Search String'].insert(0, "Bill ")
+    #ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
-    ents['Destination File'].insert(0, "t1.csv")
+    ents['Destination File'].insert(0, "calGOut.csv")
+    #ents['Destination File'].insert(0, "t1.csv")
 
     ents['Google Account Password'].focus()
 
     root.mainloop()
+    """

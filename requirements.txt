@@ -1,14 +1,12 @@
 # C:\Users\dalem\workspace\calGOut>\Python27\Scripts\pip.exe install -r requirements.txt
 
-#python=2 for google-api-python-client
-# I wonder if this is the proper syntax for describing the Python version?
-#python>=3 # Nope, just know that Python3 is required.
-# But google-api-python-client v3 seems to require Python2!
+#python=2 # google-api-python-client v3 segoogle-api-python-clientems requires Python2
+#apt-get install python-tk
 dateutils
 python-dateutil # required by gcalcli.py
 pytz # required by gcalcli.py
 gflags-multibool
-google-api-python-client
+google-api-python-client # google-api-python-client v3
 #pip install --upgrade google-api-python-client
 httplib2
 

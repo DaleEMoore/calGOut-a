@@ -9,10 +9,35 @@ https://code.google.com/p/google-api-python-client/downloads/list
 
 
 TODOs
-setup.py might be needed to install all the requirements in the VirtualEnvironment.
-    If not dateutil.tz then run setup.py to get everything?
-    sudo pip install python-dateutil --upgrade
-    sudo pip install pytz --upgrade
+Make the code self-updating except when (major.minor.miniscule) major or minor? changes.
+
+Save the default values so it's customized to the installed instance.
+
+Launch it from a Desktop ICON.
+    Python Launcher for Windows (Console) Python Software Foundation.
+    (Instead of python.exe.) It looks like it's launching idea.
+    C:\Users\dalem\PycharmProjects\calGOut\main.py
+    C:\Users\dalem\PycharmProjects\calGOut
+
+
+Make the UI more obvious.
+    Tell me when it's done processing, or launch Excel.
+
+Preview CSV output in form allowing EXPORT check-box for inclusion.
+Export EXPORT checked items to a QuickBooks formatted file.
+    Like TimerMW1.IIF:
+!TIMERHDR	VER	REL	COMPANYNAME	IMPORTEDBEFORE	FROMTIMER	COMPANYCREATETIME
+TIMERHDR	6	0	Moore Works	N	Y	915135124
+!TIMEACT	DATE	JOB	EMP	ITEM	PITEM	DURATION	PROJ	NOTE	XFERTOPAYROLL	BILLINGSTATUS	GUID
+TIMEACT	12/31/2014	Medical Reimbursement                             	Moore, Dale E                                     	Hrs 125		1		(12/31/2014) 001 PC Michelle power supply repairs                                                                                                                                                                                                              	N	1	203
+TIMEACT	1/1/2015	Berridge Manufacturing Company                    	Moore, Dale E                                     	Hrs 125		6.5		(1/1/2015) 001 TEST site DNS failing on some pages, email MS Exchange research, product-picture-slider training                                                                                                                                                	N	1	204
+TIMEACT	1/2/2015	Berridge Manufacturing Company                    	Moore, Dale E                                     	Hrs 125		1		(1/2/2015) 001 Researching WordPress email to MS Exchange failing                                                                                                                                                                                              	N	1	205
+TIMEACT	1/5/2015	LF Incassable LLC                                 	Moore, Dale E                                     	Hrs 125		2		(1/5/2015) 001 User and company account access, user account RDP setup                                                                                                                                                                                         	N	1	206
+TIMEACT	1/5/2015	Berridge Manufacturing Company                    	Moore, Dale E                                     	Hrs 125		1.5		(1/5/2015) 001 Product-picture-slider research                                                                                                                                                                                                                 	N	1	207
+    Find out NEW QB IIF format and start using that.
+Add column names in CSV output.
+Make it prettier.
+Make simple Linux, MAC and Windows installer.
 
 
 
@@ -147,3 +172,23 @@ https://developers.google.com/google-apps/calendar/v1/developers_guide_dotnet
 
     https://developers.google.com/google-apps/calendar/setup
     https://developers.google.com/google-apps/calendar/instantiate
+
+
+Thu 4 Dec 2014 9:06 AM CST
+setup.py might be needed to install all the requirements in the VirtualEnvironment.
+    If not dateutil.tz then run setup.py to get everything?
+    sudo pip install python-dateutil --upgrade
+    sudo pip install pytz --upgrade
+
+    requirements.txt contains everything I need for PyCharm to install.
+
+Fri 5 Dec 2014 7:23 AM CST
+Shifting from command-line date strings to calculated last-2-weeks date strings is failing.
+    Figure out how to get last-2-weeks into command-line acceptible format.
+
+Make main.py run it.
+Change tkinter options page to have key fields.
+
+Wed 3 Jun 2015 9:27 AM CST
+Change the default ['Search String'] from "Bill" to "Bill " so I avoid stuff like "billable" and "billing".
+
