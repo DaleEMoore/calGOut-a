@@ -7,8 +7,28 @@ get and install google gdata.
 python27\scripts\pip install --upgrade google-api-python-client
 https://code.google.com/p/google-api-python-client/downloads/list
 
+How do I implement code?
+    Find google_calendar_API_v3_1.pyc and copy to production?
+    Copy to smb://192.168.1.2/c$/Shares/Shared/Access/InvoiceExports
+    Backup google_calendar_API_v3_1.py and .pyc to C:\Users\dalem\PycharmProjects\calGOut\old
+    Then move to C:\Users\dalem\PycharmProjects\calGOut
+    Try it.
+
+
 
 TODOs
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
+    Bad character in some record from Google.
+    Display line after read so I know which line is in error.
+    http://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20
+    .encode('utf-8').strip()
+    Message: 'ascii' codec can't decode byte 0xc2 in position 67: ordinal not in range(128)
+    http://stackoverflow.com/questions/21129020/how-to-fix-unicodedecodeerror-ascii-codec-cant-decode-byte
+    Try except error and display which calendar description is failing.
+    I MIGHT have fixed the problem, but; it doesn't display that there was a data error; I think. So I've commented
+    out the code and expect that when I encounter the next data error I will be able to make it display.
+
 Make the code self-updating except when (major.minor.miniscule) major or minor? changes.
 
 Save the default values so it's customized to the installed instance.
@@ -38,6 +58,11 @@ TIMEACT	1/5/2015	Berridge Manufacturing Company                    	Moore, Dale 
 Add column names in CSV output.
 Make it prettier.
 Make simple Linux, MAC and Windows installer.
+
+setup.py might be needed to install all the requirements in the VirtualEnvironment.
+    If not dateutil.tz then run setup.py to get everything?
+    sudo pip install python-dateutil --upgrade
+    sudo pip install pytz --upgrade
 
 
 
@@ -174,6 +199,13 @@ https://developers.google.com/google-apps/calendar/v1/developers_guide_dotnet
     https://developers.google.com/google-apps/calendar/instantiate
 
 
+Fri 5 Dec 2014 7:23 AM CST
+Shifting from command-line date strings to calculated last-2-weeks date strings is failing.
+    Figure out how to get last-2-weeks into command-line acceptible format.
+
+Make main.py run it.
+Change tkinter options page to have key fields.
+
 Thu 4 Dec 2014 9:06 AM CST
 setup.py might be needed to install all the requirements in the VirtualEnvironment.
     If not dateutil.tz then run setup.py to get everything?
@@ -182,13 +214,14 @@ setup.py might be needed to install all the requirements in the VirtualEnvironme
 
     requirements.txt contains everything I need for PyCharm to install.
 
-Fri 5 Dec 2014 7:23 AM CST
-Shifting from command-line date strings to calculated last-2-weeks date strings is failing.
-    Figure out how to get last-2-weeks into command-line acceptible format.
-
-Make main.py run it.
-Change tkinter options page to have key fields.
-
 Wed 3 Jun 2015 9:27 AM CST
 Change the default ['Search String'] from "Bill" to "Bill " so I avoid stuff like "billable" and "billing".
+
+
+Wed 10 August 2016 7:33 AM CST
+oauth2client.client.AccessTokenRefreshError: invalid_grant
+    Trying to fix a bug when running as guest1@Mercury.
+    http://stackoverflow.com/questions/23918443/got-invalid-grant-in-oauth2-signedjwtassertioncredentials
+    This MIGHT been because I'd not git pull-ed the most recent code.
+    Fixed buy git pull-ing the most recent code!
 

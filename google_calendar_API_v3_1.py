@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 # From https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
 # I'm going to butcher this to do what I want!
 #!/usr/bin/env python
@@ -1337,7 +1338,16 @@ class gcalcli:
         oDate = ds.date()
         oTime = ds.time()
         oDuration = de - ds
+        # Message: 'ascii' codec can't decode byte 0xc2 in position 67: ordinal not in range(128)
+        #oDescription = event['summary'].encode('utf-8').strip()
+        # UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
+#        try:
         oDescription = event['summary']
+#        except:
+#            # TODO; I need to be certain this error is displayed!!!
+#            PrintMsg("Error processing 1347: " + event['summary'] + "!")
+#            PrintMsg("Unexpected error:", sys.exc_info()[0])
+#            oDescription = ""
         # does oDescription contain search_string?
         if search_string.upper() in oDescription.upper():
             # does this event exist in the start_date and end_date range?
@@ -1350,9 +1360,20 @@ class gcalcli:
                     #or ds <= start_date <= de
                     # ds <= end_date <= de
             # TODO; CSV has strings quoted
+#            try:
             sys.stdout.write ('"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n')
+#            except:
+#                # TODO; I need to be certain this error is displayed!!!
+#                PrintMsg("Error processing 1365: " + event['summary'] + "!")
+#               PrintMsg("Unexpected error:", sys.exc_info()[0])
             fOut = open(destination_file, 'a')
+#            try:
             fOut.write('"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n')
+#            except:
+#                # TODO; I need to be certain this error is displayed!!!
+#               PrintMsg("Error processing 1371: " + event['summary'] + "!")
+#                PrintMsg("Unexpected error:", sys.exc_info()[0])
+
             #fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
             fOut.close()
             #sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
