@@ -1,8 +1,12 @@
+infoCalGOut.txt
+
 Overview
 Calendar Google Out to Quick Books, Quicken, OpenERP, Odoo or some other invoicing program.
 
 Keep your scheduled events in Google Calendar, perform the events, then bill for the time.
 get and install google gdata.
+
+DEV; in pyCharm run main.py.
 
 python27\scripts\pip install --upgrade google-api-python-client
 https://code.google.com/p/google-api-python-client/downloads/list

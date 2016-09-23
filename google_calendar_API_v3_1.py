@@ -1341,13 +1341,21 @@ class gcalcli:
         # Message: 'ascii' codec can't decode byte 0xc2 in position 67: ordinal not in range(128)
         #oDescription = event['summary'].encode('utf-8').strip()
         # UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
-#        try:
-        oDescription = event['summary']
-#        except:
-#            # TODO; I need to be certain this error is displayed!!!
-#            PrintMsg("Error processing 1347: " + event['summary'] + "!")
-#            PrintMsg("Unexpected error:", sys.exc_info()[0])
-#            oDescription = ""
+        # TODO; Make errors more obvious! I overlooked a "KeyError: 'summary'" one week and missed some billing!
+        # Bug in Google Calendar Extractor calGOut KeyError: 'summary'? 2016-09-7 2016-09-13
+        try:
+            oDescription = event['summary']
+        except:
+            # TODO; I need to be certain this error is displayed!!!
+            s1 = "Error processing 1347: ?!"
+            #s1 = "Error processing 1347: " + event['summary'] + "!"
+            s1 = s1 + " Unexpected error:", sys.exc_info()[0]
+            oDescription = s1
+            s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
+            sys.stdout.write (s2)
+            fOut = open(destination_file, 'a')
+            fOut.write(s2)
+            fOut.close()
         # does oDescription contain search_string?
         if search_string.upper() in oDescription.upper():
             # does this event exist in the start_date and end_date range?
@@ -1360,22 +1368,24 @@ class gcalcli:
                     #or ds <= start_date <= de
                     # ds <= end_date <= de
             # TODO; CSV has strings quoted
-#            try:
-            sys.stdout.write ('"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n')
-#            except:
-#                # TODO; I need to be certain this error is displayed!!!
-#                PrintMsg("Error processing 1365: " + event['summary'] + "!")
-#               PrintMsg("Unexpected error:", sys.exc_info()[0])
+            s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
+            sys.stdout.write (s2)
             fOut = open(destination_file, 'a')
-#            try:
-            fOut.write('"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n')
-#            except:
-#                # TODO; I need to be certain this error is displayed!!!
-#               PrintMsg("Error processing 1371: " + event['summary'] + "!")
-#                PrintMsg("Unexpected error:", sys.exc_info()[0])
-
-            #fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
+            fOut.write(s2)
             fOut.close()
+            # '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
+            #            try:
+            #            except:
+            #                # TODO; I need to be certain this error is displayed!!!
+            #                PrintMsg("Error processing 1365: " + event['summary'] + "!")
+            #               PrintMsg("Unexpected error:", sys.exc_info()[0])
+            #            try:
+            #            except:
+            #                # TODO; I need to be certain this error is displayed!!!
+            #               PrintMsg("Error processing 1371: " + event['summary'] + "!")
+            #                PrintMsg("Unexpected error:", sys.exc_info()[0])
+
+            # fOut.write(oCalendar + "," + str(oDate) + "," + str(oTime) + "," + str(oDuration) + "," + str(oDescription) + '\n')
             #sys.stdout.write (oCalendar + "," + str(event['start']) + "," + str(event['end']) + "," + str(event['summary']) + '\n')
             #PrintMsg(CLR_BLK(), Calendar + "," + str(Date) + "," + str(Time) + "," + str(Duration) + "," + Description)
             #print oCalendar, oDate, oTime, oDuration, oDescription
