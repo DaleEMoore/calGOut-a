@@ -14,6 +14,8 @@ httplib2
 
 parse
 
+parsedatetime
+
 # apt-get install python-tk python3-tk
 
 # dalem@Bubbles4:~$ pip install tkinter
