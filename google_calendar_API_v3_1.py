@@ -1344,14 +1344,18 @@ class gcalcli:
         # TODO; Make errors more obvious! I overlooked a "KeyError: 'summary'" one week and missed some billing!
         # Bug in Google Calendar Extractor calGOut KeyError: 'summary'? 2016-09-7 2016-09-13
         try:
-            oDescription = event['summary']
+            # TODO; u'Jorge E. Gómez\\'s birthday' gets {UnicodeEncodeError}'ascii' codec can't encode character u'\xf3' in position 10: ordinal not in range(128)
+            oDescription = event['summary'].encode('ascii','replace') # unrecognized characters become '?'.
+            #oDescription = event['summary'].decode('utf-8').strip()
+            #oDescription = event['summary']
         except:
             # TODO; I need to be certain this error is displayed!!!
             s1 = "Error processing 1347: ?!"
             #s1 = "Error processing 1347: " + event['summary'] + "!"
             s1 = s1 + " Unexpected error:", sys.exc_info()[0]
-            oDescription = s1
-            s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
+            oDescription = str(s1)
+            s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + oDescription + '"' + '\n'
+            #s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
             sys.stdout.write (s2)
             fOut = open(destination_file, 'a')
             fOut.write(s2)
@@ -1368,7 +1372,12 @@ class gcalcli:
                     #or ds <= start_date <= de
                     # ds <= end_date <= de
             # TODO; CSV has strings quoted
-            s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
+            # TODO; when description has curly left or right double-quotes (“OE-QT”) "fOut.write(s2)" gets "'ascii' codec can't encode character u'\u201c'.
+            s2 = '"' + oCalendar + '"' + "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + oDescription + '"' + '\n'
+            #s3 = oDescription.replace('“', '"')
+            #s3 = s3.replace('”', '"')
+            #s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + s3 + '"' + '\n'
+            #s2 = '"' + oCalendar + '"'+ "," + '"' + str(oDate) + '"' + "," + '"' + str(oTime) + '"' + "," + str(oDuration) + "," + '"' + str(oDescription) + '"' + '\n'
             sys.stdout.write (s2)
             fOut = open(destination_file, 'a')
             fOut.write(s2)
