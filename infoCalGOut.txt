@@ -302,3 +302,70 @@ Ran DEV on Windows, ran fine, without error.
 Then ran LIVE on Windows, still no problem. I'm assuming that the DEV installation improved the package support on Windows perhaps with new versions.
 
 
+We 8 Mar 2017 8:05 AM CST
+calGOut failing with "Message: [Errno 8] _ssl.c:504: EOF occurred in violation of protocol":
+
+('C:\\Users\\dalem\\PycharmProjects\\calGOut\\main.py', 'csv', '2017-03-01', '20
+17-03-07')
+Status: Starting...
+Status: Waiting for entry...
+Message: Enter dates as yyyy-mm-dd!
+Status: Processing...
+(datetime.datetime(2017, 3, 1, 0, 0), datetime.datetime(2017, 3, 8, 0, 0), u'Bil
+l ', 'calGOut.csv')
+Message: [Errno 8] _ssl.c:504: EOF occurred in violation of protocol
+Traceback (most recent call last):
+  File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", lin
+e 2591, in get_events
+    BowChickaWowWow()
+  File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", lin
+e 2409, in BowChickaWowWow
+    gcal.AgendaQuery(startText=str(start_date), endText=str(end_date))
+  File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", lin
+e 1734, in AgendaQuery
+    eventList = self._SearchForCalEvents(start, end, None)
+  File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", lin
+e 1638, in _SearchForCalEvents
+    work = self._CalService().events().\
+  File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", lin
+e 536, in _CalService
+    http=self._GoogleAuth())
+  File "C:\Python27\lib\site-packages\oauth2client\util.py", line 132, in positi
+onal_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\googleapiclient\discovery.py", line 198, i
+n build
+    resp, content = http.request(requested_url)
+  File "C:\Python27\lib\site-packages\oauth2client\util.py", line 132, in positi
+onal_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\oauth2client\client.py", line 538, in new_
+request
+    redirections, connection_type)
+  File "C:\Python27\lib\site-packages\httplib2\__init__.py", line 1593, in reque
+st
+    (response, content) = self._request(conn, authority, uri, request_uri, metho
+d, body, headers, redirections, cachekey)
+  File "C:\Python27\lib\site-packages\httplib2\__init__.py", line 1335, in _requ
+est
+    (response, content) = self._conn_request(conn, request_uri, method, body, he
+aders)
+  File "C:\Python27\lib\site-packages\httplib2\__init__.py", line 1257, in _conn
+_request
+    conn.connect()
+  File "C:\Python27\lib\site-packages\httplib2\__init__.py", line 1021, in conne
+ct
+    self.disable_ssl_certificate_validation, self.ca_certs)
+  File "C:\Python27\lib\site-packages\httplib2\__init__.py", line 80, in _ssl_wr
+ap_socket
+    cert_reqs=cert_reqs, ca_certs=ca_certs)
+  File "C:\Python27\lib\ssl.py", line 387, in wrap_socket
+    ciphers=ciphers)
+  File "C:\Python27\lib\ssl.py", line 143, in __init__
+    self.do_handshake()
+  File "C:\Python27\lib\ssl.py", line 305, in do_handshake
+    self._sslobj.do_handshake()
+SSLError: [Errno 8] _ssl.c:504: EOF occurred in violation of protocol
+Status: Waiting for entry...
+
+Try it again... No error this time. Something at Google or on Buba during programs startup?

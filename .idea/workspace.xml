@@ -4,9 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/main.py" line="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c780eab9-4128-4253-95b8-dcbe724d0eb2" name="Default" comment="New versions of packages fixed Windows failure.">
+    <list default="true" id="c780eab9-4128-4253-95b8-dcbe724d0eb2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/google_calendar_API_v3_1.py" afterPath="$PROJECT_DIR$/google_calendar_API_v3_1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infoCalGOut.txt" afterPath="$PROJECT_DIR$/infoCalGOut.txt" />
     </list>
     <ignored path="calGOut.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="infoCalGOut.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="infoCalGOut.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/infoCalGOut.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="799">
+              <caret line="317" column="80" lean-forward="true" selection-start-line="317" selection-start-column="80" selection-end-line="317" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -39,18 +39,18 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="165" column="31" lean-forward="true" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
+            <state relative-caret-position="2720">
+              <caret line="165" column="31" lean-forward="false" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="google_calendar_API_v3_1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="google_calendar_API_v3_1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/google_calendar_API_v3_1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="1347" column="12" lean-forward="true" selection-start-line="1347" selection-start-column="12" selection-end-line="1347" selection-end-column="107" />
+            <state relative-caret-position="17">
+              <caret line="1347" column="12" lean-forward="false" selection-start-line="1347" selection-start-column="12" selection-end-line="1347" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -90,9 +90,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/infoCalGOut.txt" />
         <option value="$PROJECT_DIR$/old/google_calendar_API_v3_1.py" />
         <option value="$PROJECT_DIR$/google_calendar_API_v3_1.py" />
+        <option value="$PROJECT_DIR$/infoCalGOut.txt" />
       </list>
     </option>
   </component>
@@ -120,6 +120,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,7 +150,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483550513425</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Getting non-ascii characters in input.&#10;&#10;oDescription = event['summary'].encode('ascii','replace') # unrecognized characters become '?'.">
+      <created>1486565052747</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1486565052747</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -505,16 +512,14 @@
     <frame x="466" y="38" width="1417" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28530872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284599" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32731137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32837406" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29094827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2413793" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -522,9 +527,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29094827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21844128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2413793" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -548,7 +555,8 @@
     <MESSAGE value="It looks like everything is appearing, and all the KEY TODOs have been addressed. Review infoCalGOut.txt and see what's outstanding." />
     <MESSAGE value="Added TODOs. Do 'em!" />
     <MESSAGE value="New versions of packages fixed Windows failure." />
-    <option name="LAST_COMMIT_MESSAGE" value="New versions of packages fixed Windows failure." />
+    <MESSAGE value="Getting non-ascii characters in input.&#10;&#10;oDescription = event['summary'].encode('ascii','replace') # unrecognized characters become '?'." />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting non-ascii characters in input.&#10;&#10;oDescription = event['summary'].encode('ascii','replace') # unrecognized characters become '?'." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -586,13 +594,7 @@
       </default-breakpoints>
       <option name="time" value="40" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="event['summary']" />
-        <watch expression="oDescription" />
-        <watch expression="event['summary'].decode('utf-8')" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">
@@ -861,34 +863,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infoCalGOut.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/old/google_calendar_API_v3_1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="1350" column="42" lean-forward="true" selection-start-line="1350" selection-start-column="42" selection-end-line="1350" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="165" column="31" lean-forward="true" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
+        <state relative-caret-position="2720">
+          <caret line="165" column="31" lean-forward="false" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/google_calendar_API_v3_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="1347" column="12" lean-forward="true" selection-start-line="1347" selection-start-column="12" selection-end-line="1347" selection-end-column="107" />
+        <state relative-caret-position="17">
+          <caret line="1347" column="12" lean-forward="false" selection-start-line="1347" selection-start-column="12" selection-end-line="1347" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infoCalGOut.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="317" column="80" lean-forward="true" selection-start-line="317" selection-start-column="80" selection-end-line="317" selection-end-column="80" />
           <folding />
         </state>
       </provider>
