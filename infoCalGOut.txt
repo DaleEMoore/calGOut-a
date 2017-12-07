@@ -21,6 +21,77 @@ How do I implement code?
 
 
 TODOs
+Installed new development environment and now get:
+    ERROR: Missing module - cannot import name run
+    https://github.com/insanum/gcalcli/issues/204
+    Looks like I need to anchor
+        oauth2client==1.4.12
+        in requirements.txt and things look better.
+    authentication via google chrome.
+    Getting lots of:
+** Message: received an invalid or unencryptable secret
+[16115:16472:1207/085404.284057:ERROR:native_backend_libsecret.cc(530)] Unable to load secret itemReceived invalid secret from the secret storage
+    Running fine now without errors. I think it MIGHT BE because of the authorization.
+    Implement this code, or run at Buba and see if it works?
+    Run at Buba from terminal
+        X:\Scripts\calGOut\main.py
+        Same error 'returned "Not Found"'.
+        Check Firefox, default browser, has google calendar access.
+        From CMD URL https://calendar.google.com it works FINE.
+
+        Thu 7 Dec 2017 9:15 AM CST
+        calGOut.py has problems accessing data.
+        Gets "Not Found" on the following:
+        https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-07T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-11-30T00%3A00%3A00-06%3A00
+        But Firefox gives me:
+            {
+             "error": {
+              "errors": [
+               {
+                "domain": "usageLimits",
+                "reason": "dailyLimitExceededUnreg",
+                "message": "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup.",
+                "extendedHelp": "https://code.google.com/apis/console"
+               }
+              ],
+              "code": 403,
+              "message": "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup."
+             }
+            }
+        Try: https://code.google.com/apis/console
+        Goes to: https://console.developers.google.com/cloud-resource-manager
+        Which is Google APIs and has advertisement:
+        Like our APIs? Check out our infrastructure. Sign up to get $300 in credit and 12 months to explore Google Cloud Platform.
+        Learn more = https://cloud.google.com/free/?hl=en_US&_ga=2.107156363.-821334208.1478699030
+        Which is "Google Cloud Platform Free Tier" and has a "Try it free" button.
+        Where I have two "projects":
+            API Project 	api-project-936484003082
+            daleemoore 		daleemoore
+        Both have one member, DaleEMoore@gMail.Com.
+        See if calGOut references api-project-936484003082 or daleemoore projects.
+        api-project-936484003082 does not seem to be anywhere in the calGOut project.
+        So how does this authentication work?
+        Do I need to upgrade to a newer version of oauth?
+
+        What does "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup." have to say for itself?
+        Look for googleapis.com in code... 6 matches in 5 files.
+        See https://stackoverflow.com/questions/19335503/keep-getting-a-daily-limit-for-unauthenticated-use-exceeded-continued-use-requ for other information.
+
+
+
+        Implement this new aaaaaaauthoriiiiiiiiiiiiization:
+
+            From MW.Buba infoDaleM.txt
+
+
+
+
+
+Should I have an authorization mode for calGOut?
+
+Why is the field ents undefined in the current code?
+    Did previous copies of the code have a valid definition for the field ents?
+
 UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
 UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
     Bad character in some record from Google.
