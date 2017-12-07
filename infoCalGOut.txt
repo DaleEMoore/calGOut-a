@@ -83,6 +83,40 @@ Installed new development environment and now get:
 
             From MW.Buba infoDaleM.txt
 
+    Didn't do any implementation of this authorization on MW.Mercury. But it seems to have worked and I got these console
+    messages:
+        /usr/bin/python2.7 /home/dalem/PycharmProjects/calGOut/main.py
+        ('/home/dalem/PycharmProjects/calGOut/main.py', 'csv', '2017-11-30', '2017-12-06')
+        Status: Starting...
+        Status: Waiting for entry...
+        Message: Enter dates as yyyy-mm-dd!
+        Status: Processing...
+        WARNING:root:This function, oauth2client.tools.run(), and the use of the gflags library are deprecated and will be removed in a future version of the library.
+        (datetime.datetime(2017, 11, 30, 0, 0), datetime.datetime(2017, 12, 7, 0, 0), u'Bill ', 'calGOut.csv')
+        Your browser has been opened to visit:
+
+            https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Furlshortener&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&response_type=code&client_id=232867676714.apps.googleusercontent.com&access_type=offline
+
+        If your browser is on a different machine then exit and re-run
+        this application with the command-line parameter
+
+          --noauth_local_webserver
+
+        Authentication successful.
+        couldn't lock 16384 bytes of memory (secret_session): Cannot allocate memory
+        [23893:24177:1207/152916.154035:ERROR:get_updates_processor.cc(244)] PostClientToServerMessage() failed during GetUpdates
+        "Dale E. Moore","2017-11-30","08:00:00",1:30:00,"Bill Weinblatt for anti virus"
+        "Dale E. Moore","2017-11-30","09:30:00",1:00:00,"Plan to get chain saw from Bill and virtual box"
+        "Dale E. Moore","2017-11-30","13:45:00",1:30:00,"Bill Virginia for find files, maybe move Charles win 10 to win 7, poor kitten"
+        "Dale E. Moore","2017-12-01","09:30:00",1:00:00,"Bill ABDO for sharing violation"
+        "Dale E. Moore","2017-12-03","10:30:00",1:30:00,"TiVo will try to bill my Discover card on about the 15th for the next year for my Bolt. I'll have to give them the new expiration date."
+        "Dale E. Moore","2017-12-05","07:30:00",1:00:00,"Bill Charlie Sargent for breakfast and fix his backups; in email."
+        "Dale E. Moore","2017-12-05","09:00:00",1:00:00,"Bill credit ? Check in Jack George backups, rsync"
+        "Dale E. Moore","2017-12-05","11:30:00",0:30:00,"Help Bill Ellis with Internet server not found for IRVNET."
+        Status: Waiting for entry...
+
+        Process finished with exit code 0
+
 
 
 
