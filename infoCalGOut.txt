@@ -117,14 +117,16 @@ Installed new development environment and now get:
 
         Process finished with exit code 0
 
-
-
-
+        It looks like it's re-authorizing on each workstation (QnD, Mercury, Buba.)
+        What is the correct or easy way to upgrade Buba to the latest code?
+            PyCharm upgrade?
 
 Should I have an authorization mode for calGOut?
+    It looks like it's doing that automatically with the new code.
 
 Why is the field ents undefined in the current code?
     Did previous copies of the code have a valid definition for the field ents?
+    Though UNDEFINED, the code seems to run fine... why is that?
 
 UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
 UnicodeEncodeError: 'ascii' codec can't encode character u'\xa0' in position 67: ordinal not in range(128)
