@@ -1,4 +1,4 @@
-#! python 
+#!/usr/bin/env python2
 # main.py
 # Get user input and Google calendar events
 
