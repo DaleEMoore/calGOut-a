@@ -1,3 +1,4 @@
+#! python 
 # main.py
 # Get user input and Google calendar events
 

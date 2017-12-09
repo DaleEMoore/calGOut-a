@@ -123,6 +123,53 @@ Installed new development environment and now get:
 
 Should I have an authorization mode for calGOut?
     It looks like it's doing that automatically with the new code.
+    But not at Buba!
+
+Still failing on Buba, works OK on QnD and Mercury.
+    Use Mercury until Buba fixed.
+    Buba failure:
+        Status: Processing...
+        (datetime.datetime(2017, 11, 29, 0, 0), datetime.datetime(2017, 12, 6, 0, 0), u'Bill ', 'calGOut.csv')
+        Traceback (most recent call last):
+          File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", line 2591, in get_events
+        Message: <HttpError 404 when requesting https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-06T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-11-29T00%3A00%3A00-06%3A00 returned "Not Found">
+            BowChickaWowWow()
+          File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", line 2409, in BowChickaWowWow
+            gcal.AgendaQuery(startText=str(start_date), endText=str(end_date))
+          File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", line 1734, in AgendaQuery
+            eventList = self._SearchForCalEvents(start, end, None)
+          File "C:\Users\dalem\PycharmProjects\calGOut\google_calendar_API_v3_1.py", line 1648, in _SearchForCalEvents
+            events = work.execute()
+          File "C:\Python27\lib\site-packages\oauth2client\util.py", line 132, in positional_wrapper
+            return wrapped(*args, **kwargs)
+          File "C:\Python27\lib\site-packages\googleapiclient\http.py", line 723, in execute
+            raise HttpError(resp, content, uri=self.uri)
+        HttpError: <HttpError 404 when requesting https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-06T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-11-29T00%3A00%3A00-06%3A00 returned "Not Found">
+        Status: Waiting for entry...
+
+        https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-06T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-11-29T00%3A00%3A00-06%3A00
+        Gets:
+            {
+             "error": {
+              "errors": [
+               {
+                "domain": "usageLimits",
+                "reason": "dailyLimitExceededUnreg",
+                "message": "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup.",
+                "extendedHelp": "https://code.google.com/apis/console"
+               }
+              ],
+              "code": 403,
+              "message": "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup."
+             }
+            }
+
+        https://code.google.com/apis/console
+        Goes to https://console.developers.google.com/cloud-resource-manager
+
+        I don't underztand, it appears that it's not authenticating like QnD and Mercury did.
+        I think that I did not upgrade Buba which is still failing.
+            pycharm VCS pull
 
 Why is the field ents undefined in the current code?
     Did previous copies of the code have a valid definition for the field ents?
