@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c780eab9-4128-4253-95b8-dcbe724d0eb2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/calGOut.iml" afterPath="$PROJECT_DIR$/.idea/calGOut.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infoCalGOut.txt" afterPath="$PROJECT_DIR$/infoCalGOut.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <ignored path="calGOut.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -610,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488983198007</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="insync">
+      <created>1512841456730</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1512841456730</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -682,7 +685,8 @@
     <MESSAGE value="New versions of packages fixed Windows failure." />
     <MESSAGE value="Getting non-ascii characters in input.&#10;&#10;oDescription = event['summary'].encode('ascii','replace') # unrecognized characters become '?'." />
     <MESSAGE value="calGOut failed with &quot;Message: [Errno 8] _ssl.c:504: EOF occurred in violation of protocol&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="calGOut failed with &quot;Message: [Errno 8] _ssl.c:504: EOF occurred in violation of protocol&quot;" />
+    <MESSAGE value="insync" />
+    <option name="LAST_COMMIT_MESSAGE" value="insync" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
