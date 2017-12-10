@@ -126,6 +126,7 @@ Should I have an authorization mode for calGOut?
     But not at Buba!
 
 Still failing on Buba, works OK on QnD and Mercury.
+    Works on PC JenOvo. What's wrong with Buba?
     Use Mercury until Buba fixed.
     Buba failure:
         Status: Processing...
