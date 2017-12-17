@@ -1,4 +1,5 @@
 # -- coding: utf-8 --
+# google_calendar_API_v3_1.py
 # From https://raw.githubusercontent.com/insanum/gcalcli/master/gcalcli
 # I'm going to butcher this to do what I want!
 #!/usr/bin/env python
@@ -228,15 +229,15 @@ def Usage(expanded=False):
 # build up fields for at-end output:
 # build up fields for entry by operator:
 # pull tkinter from main.py then pass those fields into controlling this CSV execution.
-oCalendar = 'Calendar'
-oDate = '1/1/1001'
-oTime = '1:1:1'
-oDuration = 1
-oDescription = u'Description'
-start_date = '1/1/1001'
-end_date = '1/1/1001'
-search_string = u'bill'
-destination_file = "calGOut.csv"
+#oCalendar = 'Calendar'
+#oDate = '1/1/1001'
+#Time = '1:1:1'
+#oDuration = 1
+#Description = u'Description'
+#start_date = '1/1/1001'
+#end_date = '1/1/1001'
+#search_string = u'bill'
+#destination_file = "t1.csv"
 
 class CLR:
 
@@ -1701,6 +1702,7 @@ class gcalcli:
         try:
             os.remove(destination_file)
         except:
+            # If it's not there, don't worry... no need for an error message!
             pass
         if startText == '':
             if self.ignoreStarted:
@@ -2717,8 +2719,10 @@ def main():
     ents['Start Date'].insert(0, dS)
     ents['Search String'].delete(0,END)
     ents['Search String'].insert(0, "Bill ")
+    #ents['Search String'].insert(0, "Bill")
     ents['Destination File'].delete(0,END)
     ents['Destination File'].insert(0, "calGOut.csv")
+    #ents['Destination File'].insert(0, "t1.csv")
     ents['Destination File'].focus()
 
     #ents['Google Account Password'].focus()
