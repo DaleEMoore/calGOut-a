@@ -1,5 +1,8 @@
 # C:\Users\dalem\workspace\calGOut>\Python27\Scripts\pip.exe install -r requirements.txt
 
+# pip install dateutils pytz gflags-multibool oauth2client==1.4.12 google-api-python-client httplib2 parse parsedatetime
+
+
 #python=2 # google-api-python-client v3 segoogle-api-python-clientems requires Python2
 #apt-get install python-tk
 dateutils
