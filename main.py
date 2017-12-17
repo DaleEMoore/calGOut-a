@@ -1,3 +1,4 @@
+#!/usr/bin/env python2
 # main.py
 # Get user input and Google calendar events
 
@@ -196,7 +197,7 @@ if __name__ == '__main__':
     #            http://stackoverflow.com/questions/12042724/securely-storing-passwords-for-use-in-python-script
     #            http://stackoverflow.com/questions/7014953/i-need-to-securely-store-a-username-and-password-in-python-what-are-my-options
     #            https://docs.python.org/2/library/getpass.html
-    #            https://charlesleifer.com/blog/creating-a-personal-password-manager/
+    #            https://charlesleifersquare .com/blog/creating-a-personal-password-manager/
     #        python Creating a personal password manager
     #        PyCharm password database
     #    Something creates a sqlite db and that could be my answer if encrypted.

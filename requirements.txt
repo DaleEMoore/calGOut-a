@@ -8,6 +8,8 @@ dateutils
 python-dateutil # required by gcalcli.py
 pytz # required by gcalcli.py
 gflags-multibool
+oauth2client==1.4.12 # later versions don't have ".run".:w
+
 google-api-python-client
 #pip install --upgrade google-api-python-client
 httplib2
