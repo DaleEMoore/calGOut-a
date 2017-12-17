@@ -21,6 +21,49 @@ How do I implement code?
 
 
 TODOs
+Writing ./t1.csv when it should be calGOut.csv, shouldn't it?
+    I'm a bit perplexed by this. I think this means I had an
+    old version on MW.Mercury and merged it.
+
+    # google_calendar_API_v3_1.py
+        ents['Search String'].insert(0, "Bill ")
+        #ents['Search String'].insert(0, "Bill")
+        ents['Destination File'].delete(0,END)
+        ents['Destination File'].insert(0, "calGOut.csv")
+        #ents['Destination File'].insert(0, "t1.csv")
+    Fixed; but still errors in processing code.
+    I'm thinking the problem was not the MW.Mercury version (which had been working except for the
+    Google authorization issue.) I'm thinking the problem was the old version on DaleHome.QnD!
+
+    Save this code.
+    Restore from before any pushes today or from QnD in recent days.
+    Restored from git branch WorkedAt-MW.Mercury (12/10/17) and all seems well.
+        I've replaced the missing stuff from infoCalGOut.txt.
+        Now I just have the Google Authorization problem to permanently fix.
+
+
+Tkinter missing
+    DaleHome.QnD had pyenv and old versions confusion.
+    mv ~/.pyenv ~/pyenvOld
+    reboot
+    Fix Pycharm project still has pyenv virtual environment.
+    It seems to be working OK now
+
+oauth2client==1.4.12 # later versions don't have ".run".:w
+    Needed in requirements.txt because Google authorization changed.
+    I wonder what I will do in the future?
+
+DaleHome.QnD fails to run because of TK installation failure.
+    pip install Tkinter
+          InsecurePlatformWarning
+          Could not find a version that satisfies the requirement Tkinter (from versions: )
+        No matching distribution found for Tkinter
+    https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning
+    https://urllib3.readthedocs.io/en/latest/user-guide.html#ssl-py2
+    pip install urllib3[secure]
+    Nothing on QnD.
+    QnD VM Ubuntu1710 "sudo apt install python-tk" did the trick.
+
 Installed new development environment and now get:
     ERROR: Missing module - cannot import name run
     https://github.com/insanum/gcalcli/issues/204
@@ -88,7 +131,7 @@ Installed new development environment and now get:
         /usr/bin/python2.7 /home/dalem/PycharmProjects/calGOut/main.py
         ('/home/dalem/PycharmProjects/calGOut/main.py', 'csv', '2017-11-30', '2017-12-06')
         Status: Starting...
-        Status: Waiting for entry...
+        Status: Waiting for entry.https://code.google.com/apis/console..
         Message: Enter dates as yyyy-mm-dd!
         Status: Processing...
         WARNING:root:This function, oauth2client.tools.run(), and the use of the gflags library are deprecated and will be removed in a future version of the library.
