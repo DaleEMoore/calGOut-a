@@ -21,6 +21,71 @@ How do I implement code?
 
 
 TODOs
+Getting error running on DaleHome.QnD:
+Status: Waiting for entry...
+Traceback (most recent call last):
+  File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 2593, in get_events
+    BowChickaWowWow()
+  File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 2411, in BowChickaWowWow
+    gcal.AgendaQuery(startText=str(start_date), endText=str(end_date))
+  File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 1736, in AgendaQuery
+    eventList = self._SearchForCalEvents(start, end, None)
+  File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 1649, in _SearchForCalEvents
+    events = work.execute()
+  File "/home/dalem/.virtualenvs/calGOut/local/lib/python2.7/site-packages/oauth2client/util.py", line 137, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/dalem/.virtualenvs/calGOut/local/lib/python2.7/site-packages/googleapiclient/http.py", line 842, in execute
+    raise HttpError(resp, content, uri=self.uri)
+HttpError: <HttpError 404 when requesting https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-17T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-12-10T00%3A00%3A00-06%3A00 returned "Not Found">
+
+https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-17T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-12-10T00%3A00%3A00-06%3A00
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "dailyLimitExceededUnreg",
+    "message": "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup.",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup."
+ }
+}
+https://console.developers.google.com/cloud-resource-manager
+Doesn't help.
+
+https://stackoverflow.com/questions/19335503/keep-getting-a-daily-limit-for-unauthenticated-use-exceeded-continued-use-requ
+
+I too ran into the same error - "Daily Limit for Unauthenticated Use Exceeded. Continued use requires signup".
+
+I went and checked my google developer console under APIs for the project associated with the API key/ auth key, eg, https://console.developers.google.com/project/<your app id>/apiui/api. The status for Google+API was set to OFF. I turned it ON.
+
+I then got another access token, and then tried with the new one. It worked, ie, the error was gone and I got the profile details. To cross-check if that was indeed the cause of the error, I went back to console and disabled Google+ API. But now, I get the error:
+
+"Access Not Configured. Please use Google Developers Console to activate the API for your project."
+
+So, I am not 100% sure that it was the turning on/off of the Google+ API in my developer console, but do ensure that this is turned on. Also, wait a few minutes after turning on, and ensure that you get a fresh token each time before trying it.
+
+https://console.developers.google.com/project/<your app id>/apiui/api
+https://console.developers.google.com/project/daleemoore/apiui/api
+https://console.developers.google.com/apis/dashboard?project=daleemoore&duration=PT1H
+Enable apis and Services
+Google Calendar API
+It's already "API Enabled"
+https://developers.google.com/apis-explorer/?hl=en_US#p/calendar/v3/
+
+Looking for project... how do I tell my code "API Project" or dlaeemoore?
+https://programtalk.com/python-examples/oauth2client.tools.run_flow/
+https://programtalk.com/vs2/python/10371/fitbit-googlefit/auth/auth_google.py/
+
+https://developers.google.com/api-client-library/python/guide/aaa_client_secrets
+https://console.developers.google.com/cloud-resource-manager
+
+
+
+
 Writing ./t1.csv when it should be calGOut.csv, shouldn't it?
     I'm a bit perplexed by this. I think this means I had an
     old version on MW.Mercury and merged it.

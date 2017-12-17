@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Calendar Google Out
+Icon=/usr/share/icons/oxygen/64x64/mimetypes/text-calendar.png
+#Icon=/home/dalem/Downloads/pycharm-community-3.4.1/bin/pycharm.png
+Exec="pushd /home/dalem/PycharmProjects/calGOut; ./main.py"
+#Exec=lxterminal --command="/home/dalem/PycharmProjects/calGOut/main.py"
+Comment=Extract stuff from your Google Calendars
+Categories=Office;Calendar;
+Terminal=false
