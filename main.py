@@ -13,7 +13,8 @@ import datetime
 import traceback
 #from tkinter import * # Python3
 from Tkinter import * # Python2
-from old import google_calendar_fetcher
+import google_calendar_fetcher
+#from old import google_calendar_fetcher
 
 __author__ = 'DaleEMoore@gMail.Com'
 """

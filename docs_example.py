@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/python2
+# TODO: Please use the new Drive API, https://developers.google.com/drive/.
 #
 # Copyright (C) 2007, 2009 Google Inc.
 #
