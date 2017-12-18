@@ -21,6 +21,11 @@ How do I implement code?
 
 
 TODOs
+At MW.Mercury as guest1 /home/guest1/bin/calGOut/calGOut.sh in gnome-shell menu
+I can't see any logging.
+    Implement a logging option or always output to calGOut.log in CWD?
+
+
 Getting error running on DaleHome.QnD:
 Status: Waiting for entry...
 Traceback (most recent call last):
@@ -720,3 +725,10 @@ SSLError: [Errno 8] _ssl.c:504: EOF occurred in violation of protocol
 Status: Waiting for entry...
 
 Try it again... No error this time. Something at Google or on Buba during programs startup?
+
+
+
+# .vimrc needs ":set modeline" in Ubuntu to turn on modeline processing.
+# Make the following line the last line of the file, always.
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
