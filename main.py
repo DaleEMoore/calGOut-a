@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-# TODO: Package requirement 'gdata.docs.service' is not satisfied. Try: "pip2 install gdata".
+# TODO: Package requirement 'gdata.docs.service' is not satisfied. Do: "pip2 install gdata".
 # main.py
 # Get user input and Google calendar events
 
