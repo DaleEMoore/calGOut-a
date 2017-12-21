@@ -37,4 +37,5 @@ parsedatetime
 # No distributions at all found for Tkinter
 # Storing debug log for failure in /tmp/tmprspa3G
 
-gdata.docs.service # for docs_example.py; sudo pip2 install gdata
+gdata # for docs_example.py; sudo pip2 install gdata
+#gdata.docs.service # for docs_example.py; sudo pip2 install gdata
