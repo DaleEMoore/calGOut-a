@@ -21,9 +21,28 @@ How do I implement code?
 
 
 TODOs
-At MW.Mercury as guest1 /home/guest1/bin/calGOut/calGOut.sh in gnome-shell menu
-I can't see any logging.
-    Implement a logging option or always output to calGOut.log in CWD?
+At DaleHome.QnD as dalem failing on authorization.
+    Traceback (most recent call last):
+      File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 2593, in get_events
+        BowChickaWowWow()
+      File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 2411, in BowChickaWowWow
+        gcal.AgendaQuery(startText=str(start_date), endText=str(end_date))
+      File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 1736, in AgendaQuery
+        eventList = self._SearchForCalEvents(start, end, None)
+      File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 1649, in _SearchForCalEvents
+        events = work.execute()
+      File "/home/dalem/.virtualenvs/calGOut/local/lib/python2.7/site-packages/oauth2client/util.py", line 137, in positional_wrapper
+        return wrapped(*args, **kwargs)
+      File "/home/dalem/.virtualenvs/calGOut/local/lib/python2.7/site-packages/googleapiclient/http.py", line 842, in execute
+        raise HttpError(resp, content, uri=self.uri)
+    HttpError: <HttpError 404 when requesting https://www.googleapis.com/calendar/v3/calendars/jq6pbp8iau4bbii47ri5lk6ue8%40group.calendar.google.com/events?timeMax=2017-12-19T00%3A00%3A00-06%3A00&alt=json&singleEvents=true&timeMin=2017-12-12T00%3A00%3A00-06%3A00 returned "Not Found">
+
+    Process finished with exit code 0
+
+
+At MW.Mercury as guest1 /home/guest1/bin/calGOut/calGOut.sh in gnome-shell menu, running GREAT.
+    I can't see any logging.
+        Implement a logging option or always output to calGOut.log in CWD?
 
 
 Getting error running on DaleHome.QnD:
