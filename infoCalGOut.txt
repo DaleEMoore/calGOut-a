@@ -21,6 +21,16 @@ How do I implement code?
 
 
 TODOs
+I got dates out of the selection range.
+    On Wed 11 Jul 2018 I ran against 2018-06-16 through 2018-07-10 and got this data:
+    (datetime.datetime(2018, 6, 16, 0, 0), datetime.datetime(2018, 7, 11, 0, 0), u'Bill ', 'calGOut.csv')
+    "Dale E. Moore","2017-07-06","15:00:00",2:00:00,"Bill Virginia and Charles Bowden, backups+"
+    ...
+    Try it in PyCharm.
+    Verify that the calGOut.csv contains all the records displayed. 42 records/rows all the ones displayed.
+    Why do records outside the date range get included?
+
+
 At DaleHome.QnD as dalem failing on authorization.
     Traceback (most recent call last):
       File "/home/dalem/PycharmProjects/calGOut/google_calendar_API_v3_1.py", line 2593, in get_events
